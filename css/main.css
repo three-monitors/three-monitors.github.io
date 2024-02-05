@@ -1,0 +1,22 @@
+/* main.css */
+/* @charset "UTF-8"; */
+/* Підключити css/common.css за допомогою правила @import */
+
+@import url(/css/common.css);
+
+/* Виправити помилку у фрагменті */
+/* more styles */
+@import url(/lecture-03/css/main.css);
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+/* Встановити, за допомогою визначених у файлі css/common.css змінних, властивості елемента body:
+a.color;
+b.background; */
+body {
+    color: var(--primary-text-color);
+    background: var(--primary-bg-color);
+  }
