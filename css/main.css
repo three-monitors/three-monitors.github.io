@@ -2,11 +2,11 @@
 /* @charset "UTF-8"; */
 /* Підключити css/common.css за допомогою правила @import */
 
-@import url(/css/common.css);
+@import url(common.css);
 
 /* Виправити помилку у фрагменті */
 /* more styles */
-@import url(/lecture-03/css/main.css);
+/* @import url(my-imported-styles.css); */
 
 * {
     margin: 0;
