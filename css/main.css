@@ -2,16 +2,17 @@
 /* @charset "UTF-8"; */
 /* Підключити css/common.css за допомогою правила @import */
 
-@import url(common.css);
+@import url("common.css");
 
 /* Виправити помилку у фрагменті */
-/* more styles */
-/* @import url(my-imported-styles.css); */
+/* @import url("my-imported-styles.css"); */
 
 * {
     margin: 0;
     padding: 0;
   }
+
+/* more styles */
 
 /* Встановити, за допомогою визначених у файлі css/common.css змінних, властивості елемента body:
 a.color;
