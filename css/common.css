@@ -1,11 +1,20 @@
 /* common.css */
 
+/* Lecture 05 p.8 Відредагувати файл css/common.css */
 html{
     --primary-text-color: #000;
     --primary-bg-color: #fff;
+    /* Lecture 05 p.8 Визначити у глобальній області видимості змінні: */
+    --primary-font-family: 'Roboto', sans-serif;
+    --primary-font-size: 0.875rem;
 }
 
 footer{
     --footer-text-color: #fff;
     --fuuter-bg-color: #000;
+}
+
+/* Lesson 05 p.11 Встановіть для тега a властивість text-decoration: none; у файлі css/common.css */
+a {
+    text-decoration: none;
 }
