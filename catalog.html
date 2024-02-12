@@ -1,29 +1,33 @@
+<!-- Lecture 06 p.13. Відредагуйте файл catalog.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Catalog</title>
+
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=Roboto::wght@400;700&display=swap" rel="stylesheet">
+    
+	<link href="css/main.css" rel="stylesheet">
+
 </head>
 <body>
-    <!-- header -->
-    <header>
-        <!-- Розділ header повинен містити тег заголовку 1-го ріаня -->
-        <h1>Каталог</h1>
-        <!-- navigation -->
-        <!-- Розділ nav повинен містити відносні посилання на сторінки сайта -->
-        <nav>
-            <a href="index.html">Головна</a>
-            <a href="blog.html">Blog</a>
-            <a href="about.html">Про нас</a>
-            <a href="contact.html">Контакти</a>
-        </nav>
-    </header>
-    <!-- footer -->
-    <footer>
-        <!-- Розділ footer повинен містити абсолютні посилання на зовнішні сторінки та відкривати відповідний документ у новому вікні -->
-        <a href="https://google.com" target="_blank">Google</a>
-        <a href="https://www.google.com.ua" target="_blank">Google.com.ua</a>
-    </footer>
+	<aside>
+        <h2 class="text-uppercase">Categories</h2>
+                
+        <div class="bg-dark text-white">
+            <strong class="text-uppercase">Fashion &amp; Acc</strong>
+        </div>
+                
+        <ul class="list-unstyled categories">
+            <li><a href="#!">Women's T-Shirts</a></li>
+            <li><a href="#!">Men's T-Shirts</a></li>
+            <li><a href="#!">Dresses</a></li>
+            <li><a href="#!">Novelty socks</a></li>
+            <li><a href="#!">Women's sunglasses</a></li>
+            <li><a href="#!">Men's sunglasses</a></li>
+        </ul>
+    </aside>
 </body>
 </html>

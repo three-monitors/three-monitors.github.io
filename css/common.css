@@ -1,7 +1,11 @@
 /* common.css */
 
 /* Lecture 05 p.8 Відредагувати файл css/common.css */
-html{
+/*
+    Lecture 06 p.12 Відредагуйте файл css/common.css
+    Замініть елемент html на псевдоклас :root
+*/
+:root{
     --primary-text-color: #000;
     --primary-bg-color: #fff;
     /* Lecture 05 p.8 Визначити у глобальній області видимості змінні: */

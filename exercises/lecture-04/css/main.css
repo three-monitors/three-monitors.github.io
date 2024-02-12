@@ -38,7 +38,7 @@ section h2 {
 }
 */
 /* Першого елемента h2 з п.4 Lecture 4, а не першого елемента h2 на сторінці */
-.two {
+.two h2:first-of-type {
     color: indigo;
 }
 
