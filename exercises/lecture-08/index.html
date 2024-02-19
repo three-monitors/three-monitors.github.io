@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<style>
+	
+        /*
+        1. Перепишіть властивості padding та margin за допомогою скороченого синтаксу
+        .box{ 
+            padding-top:    10px; 
+            padding-right:  20px; 
+            padding-bottom: 25px; 
+            padding-left:   20px;  
+
+            margin-top:     25px; 
+            margin-right:   20px; 
+            margin-bottom:  25px; 
+            margin-left:    20px;
+        }
+        */
+        .box { 
+            padding: 10px 20px 25px 20px;
+            margin: 25px 20px;
+        }
+        
+        /*
+        2. Обчислити <!-- 2. Обчислити ширину елемента .box -->
+        */
+        .box {
+            width: 300px;
+            padding: 10px;
+            border: dashed 2px green;
+        }
+        /*
+        Ширина елемента .box = width + (padding + border) x 2 = 300 + (10 + 2) x 2 = 324px
+        */
+
+        /*
+        3. Обчислити ширину і висоту елемента .first-box
+        */
+        .first-box {
+            width: 200px;
+            height: 100px;
+            border: 8px solid blue;
+            padding: 20px;
+            background: yellow;
+        }
+        /*
+        Ширина елемента .first-box = width + (  ) x 2 = 200 + (20 + 8) х 2 = 256px
+        Висота елемента .first-box = height + (padding + border) x 2 = 100 + (20 + 8) х 2 = 156px
+        */
+
+        /*
+        4. Обчислити ширину і висоту елемента .second-box
+        */
+        .second-box {
+            width: 200px;
+            height: 100px;
+            border: 8px solid blue;
+            background: yellow;
+        }
+        /*
+        Ширина елемента .second-box = width + (padding + border) x 2 = 200 + (0 + 8) х 2 = 216px
+        Висота елемента .second-box = height + (padding + border) x 2 = 100 + (0 + 8) х 2 = 116px
+        */
+
+        /*
+        5. Обчислити ширину елемента div
+        */
+        .div { 
+            box-sizing:content-box;
+            width: 200px;
+            border: 8px solid blue;
+            padding: 20px;
+            background: yellow;
+        }
+        /*
+        Ширина елемента div = width + (padding + border) x 2 = 200 + (20 + 8) х 2 = 256px
+        */
+
+        /*
+        6. Обчислити ширину контенту елемента div
+        */
+        .div {
+            box-sizing:border-box;
+            width: 200px;
+            border: 8px solid blue;
+            padding: 20px;
+            background: yellow;
+        }
+        /*
+        Ширина контенту елемента div = width - (padding + border) x 2 = 200 - (20 + 8) х 2 = 144px
+        */
+
+        /*
+        7. Маємо таку розмітку:
+        */
+        .div {
+            border: 10px dotted black;
+            padding: 15px;
+            background: lightblue;
+        }
+        /*
+        Для кожного з example1, example2, example3 встановити властивість background-clip згідно з правилами, визначеними у відповідному параграфі
+        */
+        #example1 {
+            background-clip:border-box;
+        }
+        #example2 {
+            background-clip:padding-box;
+        }
+        #example3 {
+            background-clip:content-box;
+        }
+        /*
+        8. Є заголовок з властивістю display: inline-block, який потрібно розбити на два рядки. Його ширина має бути динамічною.
+        <h1><span>Awesome article</span></h1>
+        */
+        h1 {
+            display: inline-block;
+            inline-size: min-content;
+        }
+    </style>
+</head>
+<body>
+   <div class="box"></div>
+   <div class="first-box"></div>
+   <div class="second-box"></div>
+   <div class="div"></div>
+   <!--
+        7. Маємо таку розмітку:
+    -->
+    <div id="example1">
+        <p>Правило для example1: фон всередині елемента має простягатися за межі рамки.</p>
+    </div>
+
+    <div id="example2">
+        <p>Правило для example2: фон всередині елемента має простягатися до внутрішнього краю рамки.</p>
+    </div>
+
+    <div id="example3">
+        <p>Правило для example3: фон всередині елемента має простягатися до краю поля вмісту.</p>
+    </div>
+
+    <!--
+        8. Є заголовок з властивістю display: inline-block, який потрібно розбити на два рядки. Його ширина має бути динамічною.
+        <h1><span>Awesome article</span></h1>
+    -->
+    <h1 class="min-content"><span>Awesome article</span></h1>
+</body>
+</html>
