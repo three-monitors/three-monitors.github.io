@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+  
+body {
+    margin: 0;
+}
+  
+.nav {
+    background-color: #333;
+    color: white;
+    display: flex;
+    /* 2. Зробіть копію каталогу navbar
+    Вирівняйте елементи навігаційної панелі по вертикалі так, щоб вони мали однакову відстань зверху та знизу. */
+    align-items: baseline;
+    padding: 0 .5rem;
+    /* 2. Вирівняйте елементи навігаційної панелі по горизонті так, щоб Brand Name розташувався зліва, а пункти меню - справа. */
+    justify-content: space-between;
+    
+}
+
+.link-list {
+  display: flex;
+  margin: 0;
+  list-style: none;
+}
+
+.link {
+  padding: .5rem;
+}
+
+.link:hover {
+  background-color: #777;
+}
+
+.link a {
+  color: inherit;
+  text-decoration: none;
+}

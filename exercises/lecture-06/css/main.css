@@ -40,18 +40,12 @@ ul:nth-of-type(2) li:first-child {
 }
 
 /* 5. Встановіть першому елементу li та першому елементу span помаранчевий колір */
-ul:nth-of-type(3) li:first-of-type {
-    color: orange;
-}
-ul:nth-of-type(3) span:first-of-type {
+ul:first-of-type {
     color: orange;
 }
 
 /* 6. Встановіть останньому елементу li та останньому елементу span помаранчевий колір */
-ul:nth-of-type(4) li:last-child {
-    color: orange;
-}
-ul:nth-of-type(4) span:last-child {
+ul:last-of-type {
     color: orange;
 }
 
