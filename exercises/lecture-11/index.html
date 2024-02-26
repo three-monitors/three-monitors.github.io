@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lecture №11 - Модуль Grid</title>
+
+	  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    
+    <style>
+
+        main div:nth-of-type(1) {
+            background-color: #c9316b;
+        }
+        main div:nth-of-type(2) {
+            background-color: #c9319e;
+            grid-column: 2;
+        }
+        main div:nth-of-type(3) {
+            background-color: #c231c9;
+        }
+        main div:nth-of-type(4) {
+            background-color: #8f31c9;
+        }
+        main div:nth-of-type(5) {
+            background-color: #5c31c9;
+        }
+        main div:nth-of-type(6) {
+            background-color: #3138c9;
+        }
+        main div:nth-of-type(7) {
+            background-color: #316bc9;
+        }
+        main div:nth-of-type(8) {
+            background-color: #319ec9;
+        }
+        main div:nth-of-type(9) {
+            background-color: #31c9c2;
+        }
+        main div:nth-of-type(10) {
+            background-color: #31c98f;
+        }
+        main div:nth-of-type(11) {
+            background-color: #31c95c;
+        }
+        main div:nth-of-type(12) {
+            background-color: #38c931;
+        }
+        main div:nth-of-type(13) {
+            background-color: #c231c9;
+        }
+
+        main {
+            margin: 2vw 0;
+        }
+            
+        main div {
+            color: #fff;
+            padding: 5vh;
+        }
+        /* 1.1 створити grid-контейнер з трьох стовпців шириною 15%, 60%, 25% */
+        .grid-container1 {
+            display: grid;
+            grid-template-columns: 15%, 60%, 25%;
+        }
+        /* 1.2 створити grid-контейнер з трьох рядків висотою 95px 1fr 70px */
+        .grid-column1 {
+            grid-column:1;
+        }
+        .grid-container2  .grid-column1{
+            display: grid;
+            grid-template-columns: 95px 1fr 70px;
+        }
+        /* 1.3 створити grid-контейнер з трьох рядків висотою 90px 300px 1fr і чотирьох стовпців однакової ширини */
+        .grid-container3 {
+            display: grid;
+            grid-template-rows: 90px 300px 1fr;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        /* 1.4 створити grid-контейнер з чотирьох стовпців однакової ширини та розмістити стовпці в центрі контейнера */
+        .grid-container4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            justify-content: center;
+        }
+        /* 1.5 створити grid-контейнер з чотирьох стовпців однакової ширини, що дорівнює 50px та розташуйте стовпці в кінці рядка grid-контейнера */
+        .grid-container5 {
+            display: grid;
+            grid-template-columns: repeat(4, 50px);
+            justify-content: end;
+            justify-items: end;
+            column-gap: 50px;
+        }
+        /* 1.6 створити grid-контейнер з чотирьох стовпців однакової ширини, що дорівнює 50px. Розташуйте стовпці, встановивши рівномірну відстань між кожною парою стовпців */
+        .grid-container6 {
+            display: grid;
+            grid-template-columns: repeat(4, 50px);
+            justify-content: space-between;
+        }
+        /* 1.7 створити grid-контейнер з чотирьох стовпців однакової ширини, що дорівнює 50px. Розташуйте стовпці, встановивши однакові відстані для кожної сторони стовпців */
+        .grid-container7 {
+            display: grid;
+            grid-template-columns: repeat(4,50px);
+            justify-content: space-around;
+        }
+        /* 1.8 створити grid-контейнер з чотирьох стовпців однакової ширини, що дорівнює 50px. Призначте рівномірні відстані до обох кінців grid-контейнера та між стовпцями */
+        .grid-container8 {
+            display: grid;
+            grid-template-columns: repeat(4,50px);
+            justify-content: space-evenly;
+        }
+        /* 1.9 створити grid-контейнер з 2-х стовпців однакової ширини. Встановіть вирівнювання за замовчуванням для всіх елементів grid-контейнера */
+        .grid-container9 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: stretch;
+        }
+        /* 1.10 створити grid-контейнер з 2-х стовпців однакової ширини. Встановіть вирівнювання у напрямку до початкового краю grid-контейнера для всіх елементів */
+        .grid-container10 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: start;
+        }
+        /* 1.11 створити grid-контейнер з 2-х стовпців однакової ширини. Встановіть вирівнювання у напрямку центру grid-контейнера для всіх елементів */
+        .grid-container11 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: center;
+        }
+        /* 1.12 створити grid-контейнер з 2-х стовпців однакової ширини. Встановіть рівномірну відстань між кожною парою рядків grid-контейнера */
+        .grid-container12 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            row-gap:50px;
+        }
+        /* 1.13 створити grid-контейнер з 2-х стовпців однакової ширини. Встановіть рівномірну відстань до обох кінців контейнера сітки та між її рядками */
+        .grid-container13 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-content: space-between;
+            gap: 1%;
+        }
+      </style>
+</head>
+<body>
+    <header>    
+	    <h1>CSS Grid Layout</h1>
+    </header>
+    <main>
+        <div class="grid-container1">
+            <div>1.01</div>
+            <div>1.02</div>
+            <div>1.03</div>
+            <div>1.04</div>
+            <div>1.05</div>
+            <div>1.06</div>
+            <div>1.07</div>
+            <div>1.08</div>
+            <div>1.09</div>
+            <div>1.10</div>
+            <div>1.11</div>
+            <div>1.12</div>
+            <div>1.13</div>
+        </div>
+        <div class="grid-container2 grid-column1">
+            <div>2.01</div>
+            <div>2.02</div>
+            <div>2.03</div>
+        </div>
+        <div class="grid-container3">
+            <div>3.01</div>
+            <div>3.02</div>
+            <div>3.03</div>
+            <div>3.04</div>
+            <div>3.05</div>
+            <div>3.06</div>
+            <div>3.07</div>
+            <div>3.08</div>
+            <div>3.09</div>
+            <div>3.10</div>
+            <div>3.11</div>
+            <div>3.12</div>
+        </div>
+        <div class="grid-container4">
+            <div>4.01</div>
+            <div>4.02</div>
+            <div>4.03</div>
+            <div>4.04</div>
+            <div>4.05</div>
+            <div>4.06</div>
+            <div>4.07</div>
+            <div>4.08</div>
+            <div>4.09</div>
+            <div>4.10</div>
+            <div>4.11</div>
+            <div>4.12</div>
+            <div>4.13</div>
+        </div>
+        <div class="grid-container5">
+            <div>5.01</div>
+            <div>5.02</div>
+            <div>5.03</div>
+            <div>5.04</div>
+            <div>5.05</div>
+            <div>5.06</div>
+            <div>5.07</div>
+            <div>5.08</div>
+            <div>5.09</div>
+            <div>5.10</div>
+            <div>5.11</div>
+            <div>5.12</div>
+            <div>5.13</div>
+        </div>
+        <div class="grid-container6">
+            <div>6.01</div>
+            <div>6.02</div>
+            <div>6.03</div>
+            <div>6.04</div>
+            <div>6.05</div>
+            <div>6.06</div>
+            <div>6.07</div>
+            <div>6.08</div>
+            <div>6.09</div>
+            <div>6.10</div>
+            <div>6.11</div>
+            <div>6.12</div>
+            <div>6.13</div>
+        </div>
+        <div class="grid-container7">
+            <div>7.01</div>
+            <div>7.02</div>
+            <div>7.03</div>
+            <div>7.04</div>
+            <div>7.05</div>
+            <div>7.06</div>
+            <div>7.07</div>
+            <div>7.08</div>
+            <div>7.09</div>
+            <div>7.10</div>
+            <div>7.11</div>
+            <div>7.12</div>
+            <div>7.13</div>
+        </div>
+        <div class="grid-container8">
+            <div>8.01</div>
+            <div>8.02</div>
+            <div>8.03</div>
+            <div>8.04</div>
+            <div>8.05</div>
+            <div>8.06</div>
+            <div>8.07</div>
+            <div>8.08</div>
+            <div>8.09</div>
+            <div>8.10</div>
+            <div>8.11</div>
+            <div>8.12</div>
+            <div>8.13</div>
+        </div>
+        <div class="grid-container9">
+            <div>9.01</div>
+            <div>9.02</div>
+            <div>9.03</div>
+            <div>9.04</div>
+            <div>9.05</div>
+            <div>9.06</div>
+            <div>9.07</div>
+            <div>9.08</div>
+            <div>9.09</div>
+            <div>9.10</div>
+            <div>9.11</div>
+            <div>9.12</div>
+            <div>9.13</div>
+        </div>
+        <div class="grid-container10">
+            <div>10.01</div>
+            <div>10.02</div>
+            <div>10.03</div>
+            <div>10.04</div>
+            <div>10.05</div>
+            <div>10.06</div>
+            <div>10.07</div>
+            <div>10.08</div>
+            <div>10.09</div>
+            <div>10.10</div>
+            <div>10.11</div>
+            <div>10.12</div>
+            <div>10.13</div>
+        </div>
+        <div class="grid-container11">
+            <div>11.01</div>
+            <div>11.02</div>
+            <div>11.03</div>
+            <div>11.04</div>
+            <div>11.05</div>
+            <div>11.06</div>
+            <div>11.07</div>
+            <div>11.08</div>
+            <div>11.09</div>
+            <div>11.10</div>
+            <div>11.11</div>
+            <div>11.12</div>
+            <div>11.13</div>
+        </div>
+        <div class="grid-container12">
+            <div>12.01</div>
+            <div>12.02</div>
+            <div>12.03</div>
+            <div>12.04</div>
+            <div>12.05</div>
+            <div>12.06</div>
+            <div>12.07</div>
+            <div>12.08</div>
+            <div>12.09</div>
+            <div>12.10</div>
+            <div>12.11</div>
+            <div>12.12</div>
+            <div>12.13</div>
+        </div>
+        <div class="grid-container13">
+            <div>13.01</div>
+            <div>13.02</div>
+            <div>13.03</div>
+            <div>13.04</div>
+            <div>13.05</div>
+            <div>13.06</div>
+            <div>13.07</div>
+            <div>13.08</div>
+            <div>13.09</div>
+            <div>13.10</div>
+            <div>13.11</div>
+            <div>13.12</div>
+            <div>13.13</div>
+        </div>
+    </main>
+</body>
+</html>

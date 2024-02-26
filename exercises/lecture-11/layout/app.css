@@ -1,0 +1,18 @@
+/* 2. Зробіть копію каталогу layout */
+.grid-container {
+    display: grid;
+    grid-gap: 20px;
+    /* 2.1 Створіть сітку з 3-х колонок */
+    grid-template-columns: repeat(3, 1fr);
+
+}
+/* 2.2 Налаштуйте grid-властивості так, щоб header займав 3 колонки, main - 2 колонки, footer - 3 колонки. */
+.header {
+    grid-column: 1 / 4;
+}
+.main {
+    grid-column: 1 / 3;
+}
+.footer {
+    grid-column: 1 / 4;
+}
