@@ -130,15 +130,15 @@
         /* 1.12 створити grid-контейнер з 2-х стовпців однакової ширини. Встановіть рівномірну відстань між кожною парою рядків grid-контейнера */
         .grid-container12 {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            row-gap:50px;
+            grid-template: repeat(2, 1fr) / repeat(7, 1fr);
+            justify-content: space-between;
         }
         /* 1.13 створити grid-контейнер з 2-х стовпців однакової ширини. Встановіть рівномірну відстань до обох кінців контейнера сітки та між її рядками */
         .grid-container13 {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            justify-content: space-between;
-            gap: 1%;
+            grid-template: repeat(2, 1fr) / repeat(7, 1fr);
+            justify-content: space-evenly;
+            align-content: space-evenly;
         }
       </style>
 </head>
