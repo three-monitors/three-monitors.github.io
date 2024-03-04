@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Transform explanation</title>
+
+<style>
+.element {
+    display: inline-block;
+    background-color: #0074d9;
+    height: 100px;
+    width: 100px;
+    font-size: 1px;
+    padding: 1px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+    animation-direction: alternate;
+    opacity: 0.7;
+    /* 2. Зробіть копію каталогу skew:
+    2.1. Встановити нахил елементу .element у 20deg */
+    transform: rotate(20deg);
+    /* 2.3. Призначити елементу .element властивість animation, що має назву skew, тримає 3 секунди та ніколи не спиняється */
+    animation: skew 3s infinite alternate;
+}
+
+/* 2.2. Створити keyframes з ім'ям skew. У фреймі 100% визначити нахил елементу ліворуч на 20deg. У фреймі 0% визначити нахил елементу праворуч на 20deg. */
+@keyframes skew {
+    0% {
+        transform: rotate(20deg);
+    }
+    100% {
+        transform: rotate(-20deg);
+    }
+}
+body, html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
+  
+</head>
+
+<body translate="no">
+    <div class="element">
+    </div>
+    <div class="element">
+    </div>
+    <div class="element">
+    </div>
+
+</body>
+
+</html>
