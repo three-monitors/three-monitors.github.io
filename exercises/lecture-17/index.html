@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	
+</head>
+<body>
+   
+    <script>
+        // 1(2). Визначити результат наступних логічних виразів:
+        
+        let x = 3
+        let y = 4
+
+        x == 3 // true
+        x === "3" // false
+        x!=5 // true
+        x!== "5" // true
+        X!== 3 // X is not defined
+        y > 5 // false
+        y >= 3 // true
+        y < 5 // true
+        y <= 2 // false
+        1 == true // true
+        null == undefined // true
+        NaN == NaN // false
+
+        // 2. Визначити результат наступних логічних виразів:
+
+        let x = 3;
+        let y = 4;
+        let z = 5;
+
+        x ||= y; // 3
+        x || (y = z); // 3
+        x &&= y; // 4
+        x && (y = z); // 5
+        x ??= y; // 3
+        x ?? (y = z); // 3
+        
+        // 3. Напишіть програму, що пропонує користувачеві вгадати якесь число, наприклад 3. У разі успіху, потрібно вивести вітання користувачеві, наприклад - 'Congratulations, You did it!' Якщо число більше за 3, потрібно вивести повідомлення користувачеві, наприклад - 'The number is too long' Якщо число менше за 3, потрібно вивести повідомлення користувачеві, наприклад - 'The number is short'
+
+        let number = prompt("Вгадатйте число:");
+        if (number == 3) {
+            alert("Congratulations, You did it!"); // Congratulations, You did it!
+        } else if (number > 3) {
+            alert("The number is too long"); // The number is too long
+        } else if (number < 3) {
+            alert("The number is short"); // The number is short
+        } else {
+            alert(""); // 
+        }
+
+        // 4. Напишіть програму, що пропонує користувачеві вгадати якесь число, наприклад 3. У разі успіху, потрібно вивести вітання користувачеві, наприклад - 'Congratulations, You did it!' Якщо число більше за 3, потрібно вивести повідомлення користувачеві, наприклад - 'The number is too long' Якщо число менше за 3, потрібно вивести повідомлення користувачеві, наприклад - 'The number is short'
+        // 4.1. Напишіть версію програми, застосовуючи оператор if else
+
+        let day = prompt("Введіть назву дня тижня, наприклад - Понеділок або Monday:");
+        if (day == "Понеділок") {
+            alert("Start of the work week!"); // Start of the work week!
+        } else if (day == "Monday") {
+            alert("Start of the work week!"); // Start of the work week!
+        } else if (day == "П'ятниця") {
+            alert("End of the work week!"); // End of the work week!
+        } else if (day == "Friday") {
+            alert("End of the work week!"); // End of the work week!
+        } else {
+            alert("A regular day"); // A regular day
+        }
+
+        // 4.2 Напишіть версію програми, застосовуючи оператор switch
+
+        let o = prompt("Введіть назву дня тижня, наприклад - Понеділок або Monday:");
+        switch (o) {
+            case "Понеділок":
+                alert('Start of the work week!');
+                break;
+            case "Monday":
+                alert('Start of the work week!');
+                break;
+            case "П'ятниця":
+                alert('End of the work week!');
+                break;
+            case "Friday":
+                alert('End of the work week!');
+                break;
+            default:
+                alert('A regular day');
+        }
+        
+        // 5. За результатами іспиту студент набирає певну кількість балів, що зберігається в змінній score. Напишіть програму, що аналізує значення score та призначає студенту ступінь grade за таким алгоритмом:
+        // Якщо студент набрав менше 50 балів, призначити йому ступінь 'F'
+        // Якщо студент набрав менше 70 балів, призначити йому ступінь 'D'
+        // Якщо студент набрав менше 80 балів, призначити йому ступінь 'C'
+        // Якщо студент набрав менше 90 балів, призначити йому ступінь 'B'
+        // В іншому випадку призначити йому ступінь 'A'
+        // 5.1. Напишіть версію програми, застосовуючи оператор if else
+
+        var score = prompt("Введіть кількість балів:", "");
+        if (score < 50) {
+            alert("Призначити ступінь 'F'");
+        } else if (score < 70) {
+            alert("Призначити ступінь 'D'");
+        } else if (score < 80) {
+            alert("Призначити ступінь 'C'");
+        } else if (score < 90) {
+            alert("Призначити ступінь 'B'");
+        } else {
+            alert("Призначити ступінь 'A'");
+        }
+
+        // 5.2 Напишіть версію програми, застосовуючи тернарний оператор
+        var score = prompt("Введіть кількість балів:", "");
+        const points = score < 50 ? "Призначити ступінь 'F'"
+                                        : score < 70 ? "Призначити ступінь 'D'"
+                                        : score < 80 ? "Призначити ступінь 'C'"
+                                        : score < 90 ? "Призначити ступінь 'B'"
+                                        : "Призначити ступінь 'A'";
+        alert(points);
+
+        // 6. Виправити помилку у наступному коді:
+        // let firstName = null;
+        // let lastName = undefined;
+        // let username = firstName || lastName ?? "Guest";
+        // console.log(username); // "Guest"
+
+        let firstName = null;
+        let lastName = undefined;
+        let username = (firstName || lastName) ?? "Guest";
+
+        console.log(username); // "Guest"
+    </script>
+</body>
+</html>
