@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+    <h1>Hello, javascript!</h1>
+    
+    <script type="text/javascript">
+        // 1. В середині script визначте 2 змінні message1 зі значенням Hello та message2 зі значенням JavaScript. Використовуючи ці змінні та alert, виконайте відображення рядка "Hello JavaScript!"
+ 
+        message1 = "Hello";
+        message2 = " JavaScript";
+        alert(message1 + message2);
+
+        // 2. Виправити помилку у коді
+        // <script>
+        // 'use strict';      
+        // message = hello;
+        // message = 123456;
+        // </ script>
+
+        'use strict';
+        message3 = "hello";
+        message4 = " 123456";
+        // alert(message3 + message4);
+
+        // 3. Напишіть програму, що запитує у користувача значення двох змінних x, y, та виводить їх суму
+
+        var x = prompt("Введіть значення x", "");
+        var y = prompt("Введіть значення y", "");
+        let c = parseFloat(x) + parseFloat(y);
+        alert(c);
+
+        // 4.Виправити помилку у коді
+        // <script>
+        // 'use strict';
+        // let a = 9007199254740991;
+        // let b = 9007199254740991n;
+        // console.log(a + b); 
+        // // Uncaught TypeError: can't convert BigInt to number
+        // </ script>
+        'use strict';
+        let a = 9007199254740991;
+        let b = 9007199254740991n;
+        console.log(BigInt(a) + b);
+        // Uncaught TypeError: can't convert BigInt to number
+
+        // 5. Перепишіть код так, щоб результат дорівнював 5
+        // <script>
+        // 'use strict';
+        // let apples = "2";
+        // let oranges = "3";
+        // alert( apples + oranges );
+        // </ script>
+        'use strict';
+        let apples = 2;
+        let oranges = 3;
+        alert( apples + oranges );
+		
+        // 6. Які кінцеві значення всіх змінних a, b, c і d після виконання наведеного нижче коду?
+        // <script>
+        // 'use strict';
+        // let a = 1, b = 1;
+        // let c = ++a; // ?
+        // let d = b++; // ?
+        // </ script>
+        'use strict';
+        let a = 1, b = 1;
+        let c = ++a; // встановлює і повертає значення 2
+        let d = b++; // поверне 1 і лише потім встановить значення 2
+		
+		// 7. Які значення a і x після виконання наведеного нижче коду?
+        // <script>
+        // 'use strict';
+        // let a = 2;
+        // let x = 1 + (a *= 2);
+        // </ script>
+
+        'use strict';
+        let a = 2;
+        let x = 1 + (a *= 2); // a *= (a = a * 2)
+        // a = 4 (помножено на 2), x = 5 (1 + 4)
+		
+		// 8. Які результати цих виразів?
+		// <script>
+		// 'use strict';
+		// "" + 1 + 0
+		// "" - 1 + 0
+		// true + false
+		// 6 / "3"
+		// "2" * "3"
+		// 4 + 5 + "px"
+		// "$" + 4 + 5
+		// "4" - 2
+		// "4px" - 2
+		// "  -9  " + 5
+		// "  -9  " - 5
+		// null + 1
+		// undefined + 1
+		// NaN + 1
+		// </ script>
+		'use strict';
+		"" + 1 + 0 // 10
+		"" - 1 + 0 // -1
+		true + false // 1
+		6 / "3" // 2
+		"2" * "3" // 6
+		4 + 5 + "px" //9px
+		"$" + 4 + 5 // $45
+		"4" - 2 // 2
+		"4px" - 2 // NaN
+		"  -9  " + 5 //   -9  5
+		"  -9  " - 5 //   -14
+		null + 1 // 1
+		undefined + 1 // NaN
+		NaN + 1 // NaN
+		
+		// 9. Маємо такий код
+		// <script>
+		// 'use strict';
+		// // скоротити цей код за допомогою операторів += і *=:
+		// let n = 2;
+		// n = n + 5;
+		// n = n * 2;
+		// </ script>
+		'use strict';
+		let n = 2;
+		n += 5;
+		n *= 2;
+
+        // 10. Маємо такий код
+        // <script>
+        // let n1 = "   123   ";
+        // let n2 = "123z";
+        // let n3 = true;
+        // let n4 = false;      
+        // console.log(n1, n2, n3, n4);
+        // // Перетворити змінні n1, n2, n3, n4 на числа 
+        // </ script>
+        let n1 = "   123   ";
+        let n2 = "123z";
+        let n3 = true;
+        let n4 = false;
+        
+        n1 = Number(n1); // 123
+        n2 = Number(n2); // NaN (z не число)
+        n3 = Number(n3); // 1
+        n4 = Number(n4); // 0
+    
+        console.log(n1, n2, n3, n4); // 123 NaN 1 0
+
+    </script>
+
+</body>
+</html>
