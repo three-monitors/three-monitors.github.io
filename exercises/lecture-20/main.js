@@ -81,12 +81,7 @@ const person6 = {
     },
 };
 console.log(person6.introduceSelf()); // Hi! I'm Tom
-// console.log(
-//     "Hi! I'm",
-//     person6.firstName
-// );
-// Hi! I'm Tom
-// -----------------------------------------------
+
 // 5. Створити функцію-шаблон createPerson, що приймає аргумент name та повертає новий об'єкт з властивістю name та методом introduceSelf. Створити за допомогою createPerson 2 екземпляри об'єкта.
 function createPerson(name) {
     const obj = {};
@@ -149,32 +144,33 @@ console.log(Person.hasOwnProperty('prop')); // false
 //     1 fluid ounce brine from olive jar
 //     4 stuffed green olives
 const DirtyMartini = {
-    english_please() {
-        return `
-            ingrédients:
-                6 fluid ounces gin
-                1 dash dry vermouth (0.0351951ml)
-                1 fluid ounce brine from olive jar
-                4 stuffed green olives
-        `;
+    ingredients: {
+        gin_fluid_ounces: 6,
+        vermouth_dash: 1,
+        brine: 1,
+        olives: 4,
+        coefficient_fluid_ounces_to_ml: 28.4131,
+        coefficient_dash: 0.0351951,
     },
-    excuse_my_french() {
-        return `
-            ingrédients:
-                170.4786 ml de gin
-                1 trait de vermouth sec (0.0351951ml)
-                28.4131 ml de saumure du pot d'olive
-                4 olives vertes farcies
-        `;
+    english_please () {
+        console.log(`ingredients:
+    ${this.ingredients.gin_fluid_ounces} fluid ounces gin
+    ${this.ingredients.vermouth_dash} dash dry vermouth (${this.ingredients.coefficient_dash}ml)
+    ${this.ingredients.brine} fluid ounce brine from olive jar
+    ${this.ingredients.olives} stuffed green olives`);
+    },
+    excuse_my_french () {
+        console.log(`ingrédients:
+    ${this.ingredients.gin_fluid_ounces * this.ingredients.coefficient_fluid_ounces_to_ml}ml de gin
+    1 trait de vermouth sec (${
+        this.ingredients.vermouth_dash * this.ingredients.coefficient_dash
+    } ml)
+    ${
+        this.ingredients.brine * this.ingredients.coefficient_fluid_ounces_to_ml
+    } ml de saumure du pot d'olive
+    ${this.ingredients.olives} olives vertes farcies`);
     },
 };
-console.log(DirtyMartini.english_please()); // ingrédients:
-                                            //      6 fluid ounces gin
-                                            //      1 dash dry vermouth (0.0351951ml)
-                                            //      1 fluid ounce brine from olive jar
-                                            //      4 stuffed green olives
-console.log(DirtyMartini.excuse_my_french()); // ingrédients:
-                                              //    170.4786 ml de gin
-                                              //    1 trait de vermouth sec (0.0351951ml)
-                                              //    28.4131 ml de saumure du pot d'olive
-                                              //    4 olives vertes farcies
+console.dir(DirtyMartini);
+DirtyMartini.english_please();
+DirtyMartini.excuse_my_french();

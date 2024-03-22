@@ -80,15 +80,15 @@ function getFullName(firstName, lastName) {
 console.log(getFullName(firstName, lastName)); // Tom Cat
 
 // 9. Напишіть функцію greeting, що використовує виклик функції getFullName та повертає такий результат: Hello, Tom Cat!
-function greeting(getFullName) {
-    console.log("Hello, " + getFullName(firstName, lastName) + "!");
+function greeting(firstName, lastName) {
+    return ("Hello, " + getFullName(firstName, lastName));
 }
-greeting(getFullName); // Hello, Tom Cat!
+console.log(greeting(firstName, lastName)); // Hello, Tom Cat
 
 // 10. Використовуючи функцію greeting, створити такий шаблон:
 // <div><h1>Hello, Tom Cat!</h1></div>
-let sample = (x, y) => `
-<div><h1>Hello, ${getFullName(x, y)}!</h1></div>
+let sample = () => `
+<div><h1>${greeting(firstName, lastName)}!</h1></div>
 `
 console.log(sample(firstName, lastName)); // <div><h1>Hello, Tom Cat!</h1></div>
 
@@ -109,8 +109,10 @@ console.log(string1.trimEnd()); // "  The name of our game"
 // => '555-123'
 // => '555-123 \n'
 const phoneNumber = '\t  555-123\n ';
+// console.log("=> '" + phoneNumber.trim() + "'");
+// console.log("=> '" + phoneNumber.substring(3, 10) + " \\n'");
 console.log("=> '" + phoneNumber.trim() + "'");
-console.log("=> '" + phoneNumber.substring(3, 10) + " \\n'");
+console.log("=> '" + phoneNumber.trimStart() + "'");
 
 // 12. Маємо наступний код:
 // let sentence = 'Always look on the bright side of life';
@@ -202,7 +204,7 @@ let pattern7 = /^[0-9a-z-_]{8,16}$/;
 // console.log(pattern7);
 
 // 16. Створити регулярний вираз, який призначений для перевірки email на коректність.
-const emailRegex = /[a-zA-Z0-9\.-_]+@[a-zA-Z\d\.-]+\.[a-zA-Z^'.ru|.su]{2,}/;
+const emailRegex = /[a-zA-Z0-9\.-_]+@[a-zA-Z\d\.-]+\.(?!ru|su)[a-zA-Z]{2,}/;
 
 // 17. Маємо наступний код:
 // let sentence = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in sapien eu velit eleifend ullamcorper eget vitae nulla. Aenean euismod purus sed neque dictum, nec lobortis ante faucibus.';

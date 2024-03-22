@@ -26,20 +26,18 @@
     function checkAge(age) {
         if (age > 18) {
             return true;
-        } if (age <= 18) {
-            // ...
-            return confirm('Did parents allow you?');
         }
+        return confirm('Did parents allow you?');
     }
     // console.log(checkAge(17)); // Did parents allow you?
     // console.log(checkAge(18)); // Did parents allow you?
     // console.log(checkAge(19)); // true
 
     // 1.2. Чи буде функція працювати інакше, якщо видалити else?
-    // Ні, результат буде однаковий, якщо умовами if передбачені всі можливі варіанти.
+    // Ні, результат буде однаковий.
     
     // 1.3. Чи є різниця в поведінці цих двох варіантів і чому?
-    // Так, в першому випадку функція перевіряє одну умову, а в другому дві. Коли директива return отримує управління – функція завершує свою роботу, і управління передається на рівень вище. Якщо вік 19 в першому випадку else перевірятися не буде
+    // Ні, різниці немає, присутність блока else не є обовязковим.
 
     // 2. Наступна функція повертає true, якщо параметр age перевищує 18. В іншому випадку запитує підтвердження та повертає результат.
     function checkAge(age) {
@@ -111,10 +109,10 @@
     }
     console.log(x);
     console.log(n);
-    console.log(n ^ 0);
+    console.log(Math.trunc(n));
     console.log(pow(x,n));
 
-    if ( (n ^ 0) == n && n >= 1 ) {
+    if (n === Math.trunc(n)) {
         alert(pow(x, n));
     } else {
         alert('Неправильне значення параметра n');
@@ -167,15 +165,17 @@
     }
 
     // 8.1. Яким чином виконати виклик функцій A() і C(), щоб на консолі отримати такий результат A was called C was called foo
-    A(); // A was called
-    console.log(C()); // C was called foo
+    console.log(A() ?? C());
+    // A was called
+    // C was called
+    // foo
     
     // 8.2. Яким чином виконати виклик функцій B() і C(), щоб на консолі отримати такий результат B was called C was called foo
-    B(); // B was called
-    console.log(C()); // C was called foo
+    console.log(B() || C());
+    // B was called
+    // C was called
+    // foo
 
     </script>
-    
-
 </body>
 </html>
