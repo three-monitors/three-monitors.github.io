@@ -211,3 +211,17 @@ box-shadow: 0 0 5px 0 hsl(0, 0% 70%);
     border-color: maroon;
     color: salmon;
 }
+
+/*  */
+.test-css {
+    color:red;
+    font: 600 2.5rem/1.7;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    background-color: aqua;
+}
+
+.test-css2 {
+    background-color: violet;
+}
+/*  */
