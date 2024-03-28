@@ -54,8 +54,8 @@ btnDark.addEventListener("click", toggleMode);
 btnLight.addEventListener("click", toggleMode);
 
 // 6. Знайти на сторінці кнопку з класом btn-info. Додати до кнопки прослуховувач події "keypress". Написати функцію обробки події keypress, що перевіряє, чи є натиснута клавіша, клавішею "Enter". Якщо це так, типову дію події потрібно скасовувати за допомогою методу event.preventDefault(). Після скасування дії за замовчуванням, додати CSS-клас alert-info до елемента з id = alert та змінити значення властивості textContent цього елемента на "A simple info alert—check it out!";
-let btnInfo = document.querySelector('btn-info');
-btnInfo.addEaddEventListener("keypress", function(event) {
+let btnInfo = document.querySelector('.btn-info');
+btnInfo.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
         event.preventDefault();
         alert.classList.add('alert-info');
@@ -70,6 +70,12 @@ for (let i = 0; i < cards.length; i++) {
     let cardTitle = cards[i].querySelector('.card-title');
         console.log(cardTitle.textContent);
 }
+// Special title 1 treatment
+// Special title 2 treatment
+// Special title 3 treatment
+// Special title 4 treatment
+// Special title 5 treatment
+// Special title 6 treatment
 
 // 8. Знайти на сторінці всі селектори .card. Використовуючи цикл for, знайти для кожного елемента .card кнопку з класом .add-to-cart, додати для кожної кнопки обробник події click, що викликає функцію, яка виводить на консоль вміст кожного елемента з класом .card-title
 cards = document.querySelectorAll('.card');

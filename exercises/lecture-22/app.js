@@ -111,11 +111,9 @@ for (i = 0; i < container.length; i++) {
 // 8. Знайти колекцію всіх елементів з селектором '.container header', зберегти її в змінній headers. Використовуючи цикл for для отриманої колекції headers, замінити заголовки h1 таким чином
 let headers = document.querySelectorAll('.container header')
 console.log(container); // HTMLCollection(4) [div.container, div.container, div.container, div.container]
-let classes = ["h1", "h2", "h3", "h4"];
-console.log(classes); // (4) ['h1', 'h2', 'h3', 'h4']
 for (let i = 0; i < headers.length; i++) {
     const h1 = headers[i].querySelector("h1");
-    const newStr = document.createElement(classes[i] || "h1");
+    const newStr = document.createElement(`h${i+1}`);
     newStr.textContent = h1.textContent;
     newStr.id = h1.id;
     newStr.className = h1.className;

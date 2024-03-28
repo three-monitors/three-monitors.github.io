@@ -1,93 +1,3 @@
-console.dir(document) // #document
-console.dir(document.html) // undefined
-console.dir(document.head) // head
-console.dir(document.title) // <h1>My site</h1>
-console.dir(document.body) // body
-console.dir(document.body.childElementCount) // 10
-console.dir(document.body.firstElementChild) // svg
-console.dir(document.body.lastElementChild) // script
-console.dir(document.body.firstChild) // #text
-console.dir(document.body.childNodes) // NodeList(32)
-console.dir(document.body.children) // HTMLCollection(10)
-
-for (const child of document.body.children) {
-    console.dir(child)
-}
-// svg
-// header.page-header.mb-3
-// section#hero.hero.mt-5.mb-3
-// section.py-5
-// main.mb-3
-// section#divider.divider.py-5.mb-3
-// section#services mb-3
-// hr
-// footer.mb-3
-// script
-
-
-// section
-console.dir(document.body.section) // undefined
-console.dir(document.body.hero) // undefined
-
-// getElementById
-// getElementsByTagName
-// getElementsByClassName
-// getElementsByName
-// querySelector
-// querySelectorAll
-
-// id
-console.dir(document.getElementById('hero')) // section#hero.hero.mt-5.mb-3
-const hero = document.getElementById('hero');
-
-
-// querySelector
-let h1 = hero.querySelector('h1');
-console.log(h1) // <h1>15% offon new season!</h1>
-console.dir(h1) // h1
-
-
-// TagName
-h1 = hero.getElementsByTagName('h1');
-console.log(h1) // HTMLCollection [h1]
-console.log(h1[0]) // <h1>15% offon new season!</h1>
-console.log(h1[0].innerText) // 15% offon new season!
-
-// h1[0].innerText = "Hello h1"
-h1.innerText = "Hello element h1"
-
-// h1.style.color = "white"
-// h1.style.backgroundColor = "blue" // background-color
-// float - cssFloat
-
-// h1.style.cssText = "color:red; font: 600 2.5rem/1.7; padding: 1.5rem 2rem; text-align: center; background-color: gold;"
-
-
-// динамічна зміна контенту
-// hero.innerHTML = "<h1>Hero Section</h1>"
-// document.body.innerHTML = "<h1>Hello world</h1>"
-
-h1.className = "test-css"
-// h1.classList.add("test-css", 'test-css2')
-// h1.classList.remove("test-css")
-// h1.classList.toggle("test-css") // перемикач
-// h1.classList.toggle("test-css") // перемикач назад
-
-
-// ClassName
-let imgs = document.getElementsByClassName('image')
-console.log(imgs) // HTMLCollection(6) [div.image, div.image, div.image, div.image, div.image, div.image]
-console.log(imgs[0]) // div.image
-
-
-// SelectorAll
-imgs = document.querySelectorAll('.image img')
-console.log(imgs[0]) // <img src="images/product-6.jpg" alt="Picture for product 6" height="200">
-
-imgs[0].setAttribute('src', './images/product-5.jpg')
-imgs[3].setAttribute('src', './images/product-4.jpg')
-
-//
 "use strict";
 
 function Product(id, name, price) {
@@ -113,16 +23,22 @@ function Cart(tax = 0.07, shipping = 0) {
         this.amount = amount;
     }
     this.addItemToCart = function(product) {
-        for (let item in cart) {
-            if(cart[item].id === product.id) {
-                cart[item].amount += product.amount;
-                this.saveCart();
-                return;
-            }
+        // for (let item in cart) {
+        //     if(cart[item].id === product.id) {
+        //         cart[item].amount += product.amount;
+        //         this.saveCart();
+        //         return;
+        //     }
+        // }
+        let inCart = cart.same(item => item.id === product.id);
+        if(inCart) {
+            let index = cart.find(item => item.id === product.id);
+            cart[index].amount += product.amount;
+        } else {
+            let item = new Item(product.id, product.price, product.amount);
+            cart.push(item);
         }
-        let item = new Item(product.id, product.price, product.amount);
-        cart.push(item);
-        this.saveCart();
+            this.saveCart();
     }
     this.setCountForItem = function(id, amount) {
         for (let i in cart) {
@@ -147,19 +63,20 @@ function Cart(tax = 0.07, shipping = 0) {
     }
     this.removeItemFromCart = function(id) {
         for (let item in cart) {
-            if (cart[item].id === id)
-            cart[item].amount--;
-            if (cart[item].amount === 0) {
-                cart.splice(item, 1)
+            if (cart[item].id === id) {
+                cart[item].amount--;
+                if (cart[item].amount === 0) {
+                    cart.splice(item, 1);
             }
             break;
+            }
         }
         this.saveCart();
     }
     this.removeAllItemFromCart = function(id) {
         for (let item in cart) {
             if (cart[item].id === id) {
-                cart.splice(item, 1)
+                cart.splice(item, 1);
                 break;
             }
         }
@@ -171,18 +88,15 @@ function Cart(tax = 0.07, shipping = 0) {
     }
 }
 
-// #! Заблокувати href
-
-const productContainer = document.querySelector('.product-container')
-// let addToCart = productContainer.querySelector('.add-to-cart')
-// let showDetail = productContainer.querySelector('.add-to-cart')
-// // console.dir(addToCart)
+// let addToCart = productContainer.querySelector('.add-to-cart');
+// let showDetail = productContainer.querySelector('.show-detail');
+// console.dir(addToCart)
 // addToCart.addEventListener('click', () => {
 //     console.dir(addToCart)
 // })
 // const dialog = document.getElementById('detail');
 // showDetail.addEventListener('click', () => {
-//     // console.dir(showDetail)
+//     console.dir(showDetail)
 //     dialog.showModal();
 // })
 
@@ -203,7 +117,7 @@ function CardProduct(item) {
         let id = parent.querySelector('.content').getAttribute('id');
         console.log(id, price, name)
 
-        let product = new Product(id, name, price);
+        let product = new Product(id, name, price)
         product = {...product, amount: 1}
         console.log(product)
         shoppingCart.addItemToCart(product);
@@ -211,10 +125,8 @@ function CardProduct(item) {
         console.log(shoppingCart.totalInCart())
     });
 }
-let productCards = productContainer.querySelectorAll('.product');
-for (const item of productCards) {
-    new CardProduct(item);
-};
+
+// let addToCartButtons = productContainer.querySelectorAll('.add-to-cart');
 
 // for (const item of addToCartButtons) {
 //     item.addEventListener('click', () => {
@@ -223,8 +135,50 @@ for (const item of productCards) {
 // }
 
 function main() {
+    const productContainer = document.querySelector('.product-container');
+    let productCards = productContainer.querySelectorAll('.product');
+    // for (const item of productCards) {
+    //     new CardProduct(item);
+    // }
+    productCards.forEach(item => new CardProduct(item));
 
+    let products = [];
+    productCards.forEach(function(item) {
+        let id = item.querySelector('.content').getAttribute('id');
+        let name = item.querySelector('.product-name').textContent;
+        let price = item.querySelector('.product-price').textContent;
+        let action = item.querySelector('.badge').textContent;
+
+        products = [...products, {id:+id, name:name, price:+price, action:action}];
+    })
+
+    console.log(products)
+
+    const findByProps = function(items, props, what) {
+        let result = [];
+        items.find((item, index) => {
+            if (item[props] === what) {
+                result.push(items[index]);
+            }
+        })
+        return result;
+    }
+    console.log(findByProps(products, "action", 'New'))
+
+    const compare = (key, order='asc') => (a, b) => {
+        if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0;
+        const A = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
+        const B = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
+
+        let comparison = 0;
+        comparison = (A > B) ? 1 : -1;
+        return (order === 'desc') ? -comparison : comparison;
+    }
+
+    let sorted = products.sort(compare('id', 'desc')) // 'desc'
+    console.log(sorted)
 }
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         main();

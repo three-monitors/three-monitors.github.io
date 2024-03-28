@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><h1>My site</h1></title>
+    <title><h1>My Site</h1></title>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/main.css">
 </head>
@@ -30,7 +30,7 @@
     <!-- page header -->
     <header class="page-header mb-3">
         <!-- brand -->
-        <a href="./index.html" class="brand">Shopagolic</a>
+        <a href="./index.html" class="brand">Shopaholic</a>
         <label for="toggler">&nbsp;<i class="fas fa-bars"></i>&nbsp;</label>
         <input type="checkbox" id="toggler">
         <!-- navigation -->
@@ -51,14 +51,14 @@
     <section id="hero" class="hero mt-5 mb-3">
         <div class="container py-5 px-4">
             <p>New Inspiration 2024</p>
-            <h1>15% offon new season!</h1>
-            <a href="#!" class="btn mb-5">Browse Collection</a>
+            <h1 class="mb-3">15% off on new season!</h1>
+            <a href="#!" class="btn">Browse Collection</a>
         </div>
     </section>
     <section class="py-5">
         <div class="container">
             <header class="text-center">
-                <p class=" mb-1">Carefully create collections</p>
+                <p class="text-uppercase mb-1">Carefully created collections</p>
                 <h2>Browse our categories</h2>
             </header>
             <div class="carousel">
@@ -162,13 +162,14 @@
             <div class="product-container">
                 <article class="product">
                     <div class="icons">
+                        <!-- #! Заблокувати href -->
                         <a href="#!" class="fas fa-shopping-cart add-to-cart"></a>
                         <a href="#!" class="fas fa-heart add-to-wishlist"></a>
                         <a href="#!" class="fas fa-eye show-detail"></a>
                     </div>
                     <div class="image">
-                            <div class="bage bg-sale">Sale</div>
-                        <img src="images/product-1.jpg" alt="Picture for product 1" height="200">
+                            <div class="badge bg-sale">Sale</div>
+                        <img src="./images/product-1.jpg" alt="Picture for product 1" height="200">
                     </div>
                     <div class="content" id="1">
                         <h3 class="product-name">Product name 1</h3>
@@ -182,8 +183,8 @@
                         <a href="#!" class="fas fa-eye show-detail"></a>
                     </div>
                     <div class="image">
-                            <div class="bage bg-sale">Sale</div>
-                        <img src="images/product-2.jpg" alt="Picture for product 2" height="200">
+                            <div class="badge bg-new">New</div>
+                        <img src="./images/product-2.jpg" alt="Picture for product 2" height="200">
                     </div>
                     <div class="content" id="2">
                         <h3 class="product-name">Product name 2</h3>
@@ -197,8 +198,8 @@
                         <a href="#!" class="fas fa-eye show-detail"></a>
                     </div>
                     <div class="image">
-                            <div class="bage bg-sale">Sale</div>
-                        <img src="images/product-3.jpg" alt="Picture for product 3" height="200">
+                            <div class="badge bg-empty"></div>
+                        <img src="./images/product-3.jpg" alt="Picture for product 3" height="200">
                     </div>
                     <div class="content" id="3">
                         <h3 class="product-name">Product name 3</h3>
@@ -212,12 +213,12 @@
                         <a href="#!" class="fas fa-eye show-detail"></a>
                     </div>
                     <div class="image">
-                            <div class="bage bg-sale">Sale</div>
-                        <img src="images/product-4.jpg" alt="Picture for product 4" height="200">
+                            <div class="badge bg-sale">Sale</div>
+                        <img src="./images/product-4.jpg" alt="Picture for product 4" height="200">
                     </div>
                     <div class="content" id="4">
                         <h3 class="product-name">Product name 4</h3>
-                        <span class="price">33</span><span class="price product-price">23</span>
+                        <span class="price">33</span><span class="price product-price">12</span>
                     </div>
                 </article>
                 <article class="product">
@@ -227,8 +228,8 @@
                         <a href="#!" class="fas fa-eye show-detail"></a>
                     </div>
                     <div class="image">
-                            <div class="bage bg-sale">Sale</div>
-                        <img src="images/product-5.jpg" alt="Picture for product 5" height="200">
+                            <div class="badge bg-new">New</div>
+                        <img src="./images/product-5.jpg" alt="Picture for product 5" height="200">
                     </div>
                     <div class="content" id="5">
                         <h3 class="product-name">Product name 5</h3>
@@ -242,12 +243,12 @@
                         <a href="#!" class="fas fa-eye show-detail"></a>
                     </div>
                     <div class="image">
-                            <div class="bage bg-sale">Sale</div>
-                        <img src="images/product-6.jpg" alt="Picture for product 6" height="200">
+                            <div class="badge bg-empty">Sale</div>
+                        <img src="./images/product-6.jpg" alt="Picture for product 6" height="200">
                     </div>
                     <div class="content" id="6">
                         <h3 class="product-name">Product name 6</h3>
-                        <span class="price">33</span><span class="price product-price">23</span>
+                        <span class="price">21</span><span class="price product-price">11</span>
                     </div>
                 </article>
             </div>
@@ -302,7 +303,7 @@
                     <h3 class="footer-title">About</h3>
                     <ul>
                         <li><a href="">Services</a></li>
-                        <li><a href="">Profile</a></li>
+                        <li><a href="">Profiles</a></li>
                         <li><a href="">Priceas</a></li>
                         <li><a href="">Customers</a></li>
                         <li><a href="./exercises/index.html">Exercises</a></li>
@@ -347,10 +348,10 @@
     </footer>
 
     <dialog id="detail" class="dialog">
-        <a href="#!" title="Close" class="close fas fa-items"></a>
+        <a href="#!" title="Close" class="close fas fa-times"></a>
         <div class="detail-container">
             <div class="col-left">
-                <img src="/images/product-5.jpg">
+                <img src="./images/product-5.jpg">
             </div>
             <div class="col-right">
                 <h2>Product Name</h2>

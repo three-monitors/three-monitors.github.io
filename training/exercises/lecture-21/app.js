@@ -158,16 +158,16 @@ function Cart(tax = 0.07, shipping = 0) {
     }
 
     this.setCountForItem = function(id, amount) {
-        for (let i in cart ) {
+        for (let i in cart) {
             if(cart[i].id === id) {
-                cart(i).amount = amount;
+                cart[i].amount = amount;
             }
         }
     }
 
     this.totalAmount = function() {
         let total = 0;
-        for (let item in cart ) {
+        for (let item in cart) {
             total += cart[item].amount;
         }
         return total;
@@ -176,7 +176,7 @@ function Cart(tax = 0.07, shipping = 0) {
     this.totalInCart = function () {
         let total = 0;
         for (let item in cart) {
-            total += cart[item].price * cart[item].amount
+            total += cart[item].price * cart[item].amount;
         }
         return currency(total*(1 + this.tax) + this.shipping);
     }

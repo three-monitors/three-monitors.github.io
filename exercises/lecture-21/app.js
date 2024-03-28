@@ -2,18 +2,14 @@
 
 // const fruits = 'apple banana cantaloupe blueberries grapefruit';
 // 1. Перетворити рядок fruits у масив. Результат зберегти у масиві fruits.
-let fruits = [
-    "apple",
-    "banana",
-    "cantaloupe",
-    "blueberries",
-    "grapefruit",
-];
-console.log(fruits) // (5) ['apple', 'banana', 'cantaloupe', 'blueberries', 'grapefruit']
+const fruits = 'apple banana cantaloupe blueberries grapefruit';
+let array = fruits.split(" ", 5);
+console.log(array);
+// (5) ['apple', 'banana', 'cantaloupe', 'blueberries', 'grapefruit']
 
 // 2. Використовуючи цикл for, вивести на консоль список елементів з масиву fruits.
-for (let i = 0; i < fruits.length; i++) {
-    console.log(fruits[i])
+for (let i = 0; i < array.length; i++) {
+    console.log(array[i])
 }
 // apple
 // banana
@@ -23,8 +19,8 @@ for (let i = 0; i < fruits.length; i++) {
 
 // 3. Використовуючи цикл while, вивести на консоль список елементів з масиву fruits.
 let n = 0;
-while(n<fruits.length) {
-    console.log(fruits[n])
+while(n<array.length) {
+    console.log(array[n])
     n++;
 }
 // apple
@@ -36,9 +32,9 @@ while(n<fruits.length) {
 // 4. Використовуючи цикл do...while, вивести на консоль список елементів з масиву fruits.
 n = 0;
 do {
-    console.log(fruits[n])
+    console.log(array[n])
     n++;
-} while(n<fruits.length)
+} while(n<array.length)
 // apple
 // banana
 // cantaloupe
@@ -46,14 +42,18 @@ do {
 // grapefruit
 
 // 5. Використовуючи цикл for...of, вивести на консоль список елементів з масиву fruits.
-for (const number of fruits) {
-    console.log(fruits[number])
+for (const number of array) {
+    console.log(number)
 }
-// 5 undefined
+// apple
+// banana
+// cantaloupe
+// blueberries
+// grapefruit
 
-// in замість of:
-for (const number in fruits) {
-    console.log(fruits[number])
+// in замість of (no task):
+for (const number in array) {
+    console.log(array[number])
 }
 // apple
 // banana
@@ -65,16 +65,15 @@ for (const number in fruits) {
 // const Numbs = [1,2,3,4,5,6,7,8,9,10];
 // Використовуючи цикл for, вивести на консоль парні елементи з масиву Numbs.
 const Numbs = [1,2,3,4,5,6,7,8,9,10];
-n = 0;
-do {
-    console.log(Numbs[n])
-    n = n + 2;
-} while(n<Numbs.length)
-// 1
-// 3
-// 5
-// 7
-// 9
+for (let n = 1; n < (Numbs.length + 1); n++) {
+    if (n % 2 === 0)
+    console.log(n)
+}
+// 2
+// 4
+// 6
+// 8
+// 10
 
 // 7. Маємо масив names:
 // const names = ['Batman'];
@@ -137,7 +136,7 @@ console.log(names7)
 // Перевірити чи існує рядок 'Alfred' у масиві names, і якщо не існує, додати його до кінця масиву.
 const names8 = ['Batman', 'Catwoman', 'Joker', 'Bane'];
 console.log(names8.includes('Alfred')); // false
-if (names8.includes('Alfred') === false) {
+if (!names8.includes('Alfred')) {
     names8.push('Alfred');
 }
 console.log(names8); // (5) ['Batman', 'Catwoman', 'Joker', 'Bane', 'Alfred']

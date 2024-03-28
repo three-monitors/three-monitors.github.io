@@ -13,20 +13,24 @@ main .container h2 {
     color: white;
 }
 
+.bg-new {
+    background-color: green;
+    color: white;
+}
+
 .product-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     gap: .3em;
     & .product {
-        width: 12.5rem;
         overflow:hidden;
         position: relative;
-        > .icons {
+        .icons {
             position: absolute;
             top: 1rem;
             right: 1rem;
             z-index: -1;
-            > a {
+            a {
                 background-color: #fff;
                 color: var(--anchor-color);
                 display: block;
@@ -36,14 +40,13 @@ main .container h2 {
                 line-height: 1.5rem;
                 text-align: center;
             }
-            > a:hover {
+            a:hover {
                 background-color: var(--anchor-active-color);
                 color: #fff;
             } 
         }
-        > .image {
-            object-fit: cover;
-            > .bage {
+        .image {
+            .badge {
                 display: inline-block;
                 text-align: center;
                 vertical-align: baseline;
@@ -54,10 +57,17 @@ main .container h2 {
                 left: 0;
                 z-index: 10;
             }
+            img {
+                object-fit: cover;
+                max-width: 100%;
+                display: block;
+                height: 20rem;
+                
+            }
         }
-        > .content {
+        .content {
             padding: .5rem;
-            > h3 {
+            h3 {
                 padding-bottom: .5rem;
                 text-align: center;
                 font-size: 1rem;
@@ -67,11 +77,11 @@ main .container h2 {
                 right: 0;
                 z-index: 10;
             }
-            > .price {
+            .price {
                 font-weight: 600;
                 color: var(--anchor-active-color);
             }
-            > .price::before {
+            .price::before {
                 color: var(--anchor-active-color);
                 content: var(--currency-symbol);
             }
@@ -93,15 +103,12 @@ main .container h2 {
 }
 
 @media (min-width: 35rem) {
-    
+    #catalog {
+        display: grid;
+        gap: 1em;
+        grid-template-columns: 15rem auto;
+    }
 }
-
-#catalog {
-    display: grid;
-    gap: 1em;
-    grid-template-columns: 15rem auto;
-}
-
 ul.categories a:hover {
     color: var(--anchor-active-color);
     text-decoration: underline;
