@@ -34,7 +34,7 @@ console.log(p2)
 
 // 4. Отримати третій абзац за допомогою document.querySelector('#id') за його ідентифікатором p3. Призначити для нього клас third
 
-let p3 = document.querySelector('#p3');
+let p3 = document.querySelector('#p3');Ч
 
 p3.classList.add('third');
 console.log(p3)
