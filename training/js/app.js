@@ -117,18 +117,25 @@ function CardProduct(item) {
         let product = productList.getProductById(id);
         product = {...product, amount: 1};
         shoppingCart.addItemToCart(product);
-        document.getElementById('cart-amount').textContent = shoppingCart.totalAmount();
+        // document.getElementById('cart-amount').textContent = shoppingCart.totalAmount();
     } 
 }
 
 function Cart(tax = 0.07, shipping = 0) {
-    console.log("Cart constructor", this);
+    // console.log("Cart constructor", this);
     this.tax = tax;
     this.shipping = shipping;
 
-    let cart = [];
+    const store = new Store();
+
+    // let cart = [];
+    let cart = store.init('basket');
+    
     this.saveCart = function() {
-        console.log(cart);
+        // console.log(cart);
+        store.set('basket', cart);
+        // document.getElementById('cart-amount').textContent = shoppingCart.totalAmount();
+        cartAmount.textContent = shoppingCart.totalAmount();
     }
 
     function Item (id, price, amount) {
@@ -136,6 +143,51 @@ function Cart(tax = 0.07, shipping = 0) {
         this.price = price;
         this.amount = amount;
     }
+    const cartItemTemplate = (item, product) => `
+    
+    <div class="row cart-item" id="id${product.id}">
+        <div class="cell"><img src="${product.image}" alt="${product.name}" height="30"></div>
+        <div class="cell">${product.name}</div>
+        <div class="cell"><span class="product-price price">${product.price}</span></div>
+        <div class="cell">${item.amount}</div>
+        <div class="cell"><span class="product-subtotal price">0</span></div>
+        <div class="cell"><a href="#!" class="fas fa-trash-alt"></a></div>
+    </div>
+    `;
+
+    const findItem = (items, id) => items.find(item => item.id == id);
+    this.populateShoppingCart = (products) => {
+        let result = `
+        <div class="row header">
+                        <div class="cell">Cover</div>
+                        <div class="cell">Product</div>
+                        <div class="cell">Price</div>
+                        <div class="cell">Quantity</div>
+                        <div class="cell">Total</div>
+                        <div class="cell">Action</div>
+        </div>`;
+        cart.forEach(item => result += cartItemTemplate(item, findItem(products, item.id)));
+        return result;
+    }
+
+    this.setCartTotal = function(shoppingCartItems) {
+        let tmpTotal = 0;
+        let subTotal = 0;
+
+        cart.map(item => {
+            let price = shoppingCartItems.querySelector(`#id${item.id} .product-price`).textContent;
+            tmpTotal = +price * item.amount;
+            shoppingCartItems.querySelector(`#id${item.id} .product-subtotal`).textContent = parseFloat(tmpTotal).toFixed(2);
+            subTotal += parseFloat(tmpTotal).toFixed(2);
+
+        });
+
+        document.querySelector('.cart-subtotal').textContent = this.totalInCart();
+        document.querySelector('.cart-tax').textContent = this.tax;
+        document.querySelector('.cart-shipping').textContent = this.shipping;
+        document.querySelector('.cart-total').textContent = (+this.totalInCart() + +this.tax + +this.shipping).toFixed(2);
+    }
+    //
     this.addItemToCart = function(product) {
         // for (let item in cart) {
         //     if(cart[item].id === product.id) {
@@ -200,6 +252,7 @@ function Cart(tax = 0.07, shipping = 0) {
         cart = [];
         this.saveCart();
     }
+
 }
 
 // let addToCart = productContainer.querySelector('.add-to-cart');
@@ -224,72 +277,71 @@ function Cart(tax = 0.07, shipping = 0) {
 //     this.item = item;
 //     let addToCart = this.item.querySelector('.add-to-cart');
 //     addToCart.addEventListener('click', function(event) {
-//         // console.log(event.target)
+//         console.log(event.target)
 
 //         let parent = event.target.closest('.product');
 //         let id = parent.dataset.id;
 //         let product = productList.getProductById(products, id);
-        // let price = parent.querySelector('.product-price').innerText
-        // let name = parent.querySelector('.product-name').innerText
-        // let id = parent.querySelector('.content').getAttribute('id');
-        // console.log(id, price, name)
+//         let price = parent.querySelector('.product-price').innerText
+//         let name = parent.querySelector('.product-name').innerText
+//         let id = parent.querySelector('.content').getAttribute('id');
+//         console.log(id, price, name)
 
-        // let product = new Product(id, name, price)
-        // product = {...product, amount: 1}
-        // console.log(product)
-        // shoppingCart.addItemToCart(product);
-        // document.getElementById('cart-amount').textContent=shoppingCart.totalAmount();
+//         let product = new Product(id, name, price)
+//         product = {...product, amount: 1}
+//         console.log(product)
+//         shoppingCart.addItemToCart(product);
+//         document.getElementById('cart-amount').textContent=shoppingCart.totalAmount();
 
-        // console.log(shoppingCart.totalAmount())
-        // console.log(shoppingCart.totalInCart())
-    // });
-    // const showButton = this.item.querySelector(".show-detail");
-    // const dialog = document.querySelector("dialog");
-    // const closeButton = dialog.querySelector("dialog .close");
-    // let dialogMain = dialog.querySelector("dialog .detail-content");
+//         console.log(shoppingCart.totalAmount())
+//         console.log(shoppingCart.totalInCart())
+//     });
+//     const showButton = this.item.querySelector(".show-detail");
+//     const dialog = document.querySelector("dialog");
+//     const closeButton = dialog.querySelector("dialog .close");
+//     let dialogMain = dialog.querySelector("dialog .detail-content");
 
-    // const detailTemplate = item => `
-    // <div class="detail-container">
-    //         <div class="col-left">
-    //             <img src="${item.image}">
-    //         </div>
-    //         <div class="col-right">
-    //             <div class="info-container">
-    //                 <h2 class="info-header">${item.name}</h2>
+//     const detailTemplate = item => `
+//     <div class="detail-container">
+//             <div class="col-left">
+//                 <img src="${item.image}">
+//             </div>
+//             <div class="col-right">
+//                 <div class="info-container">
+//                     <h2 class="info-header">${item.name}</h2>
     
-    //                 <div class="info-price">Price: <span class="price">${item.price}</span></div>
-    //                 <div class="info-shipping">Free shipping</div>
+//                     <div class="info-price">Price: <span class="price">${item.price}</span></div>
+//                     <div class="info-shipping">Free shipping</div>
                     
-    //                 <div class="info-button to-cart" data-id="1">
-    //                     <a href="#!" class="btn btn-submit add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</a>
-    //                 </div>
+//                     <div class="info-button to-cart" data-id="1">
+//                         <a href="#!" class="btn btn-submit add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</a>
+//                     </div>
     
-    //                 <h2 class="qty-header py-2">Amount:</h2>     
+//                     <h2 class="qty-header py-2">Amount:</h2>     
                         
-    //                 <div class="qty qty-buttons">
-    //                     <div class="number-input quantity" data-id="${item.id}">
-    //                         <button class="btn btn-dec">-</button>
-    //                         <input class="quantity-result"
-    //                                         type="number" 
-    //                                         value="1"
-    //                                         min="1"
-    //                                         max="10"
-    //                                         required 
-    //                                         />
-    //                         <button class="btn btn-inc">+</button>
-    //                     </div>
-    //                 </div>
+//                     <div class="qty qty-buttons">
+//                         <div class="number-input quantity" data-id="${item.id}">
+//                             <button class="btn btn-dec">-</button>
+//                             <input class="quantity-result"
+//                                             type="number" 
+//                                             value="1"
+//                                             min="1"
+//                                             max="10"
+//                                             required 
+//                                             />
+//                             <button class="btn btn-inc">+</button>
+//                         </div>
+//                     </div>
     
-    //                 <div class="info-description">${item.description}</div>
-    //                 <div class="info-link">
-    //                 <a class="btn-link far fa-heart add-to-wishlist" href="#!" data-id="1">&nbsp;Add to wish list</a>
-    //                 </div>
-    //             </div>    
+//                     <div class="info-description">${item.description}</div>
+//                     <div class="info-link">
+//                     <a class="btn-link far fa-heart add-to-wishlist" href="#!" data-id="1">&nbsp;Add to wish list</a>
+//                     </div>
+//                 </div>    
             
-    //         </div>
-    //       </div>
-    // `;
-    
+//             </div>
+//           </div>
+//     `;    
     
 //     showButton.addEventListener("click", event => {
 //         let parent = event.target.closest('.product');
@@ -319,6 +371,24 @@ const starsTemplate = (n) => Array(n).fill('&starf;').concat(Array(5 - n).fill('
 
 function ProductList(products) {
     this.products = products;
+    // this.productTemplate = (product) => `
+    // <article class="product" data-id="${product.id}">
+    //     <div class="icons">
+    //         <a href="#!" class="fas fa-shopping-cart add-to-cart"></a>
+    //         <a href="#!" class="fas fa-heart add-to-wishlist"></a>
+    //         <a href="#!" class="fas fa-eye show-details"></a>
+    //     </div>
+    //     <div class="image">
+    //         <div class="badge bg-${product.badge.bg}">${product.badge.title}</div>
+    //         <img src="${product.image}" alt="${product.name}">
+    //     </div>
+    //     <div class="content" data-id="${product.id}">
+    //         <h3 class="product-name">${product.name}</h3>
+    //         <span><span>${starsTemplate(product.stars)}</span><span class="price product-price">${product.price}</span></span>
+    //         <span><span class="price"></span><span class="price product-price">${product.price}</span></span> <span class="starf">${starsTemplate(product.stars)}</span>
+    //     </div>                    
+    // </article>
+    // `;
     this.productTemplate = (product) => `
     <article class="product" data-id="${product.id}">
         <div class="icons">
@@ -332,14 +402,12 @@ function ProductList(products) {
         </div>
         <div class="content" data-id="${product.id}">
             <h3 class="product-name">${product.name}</h3>
-            // <span><span>${starsTemplate(product.stars)}</span><span class="price product-price">${product.price}</span></span>
             <span><span class="price"></span><span class="price product-price">${product.price}</span></span> <span class="starf">${starsTemplate(product.stars)}</span>
-        </div>
-                    
+        </div>                    
     </article>
     `;
 
-    this.populateProductList = function(products) {
+    this.populateProductList = function (products) {
         let content = "";
         products.forEach(item => content += this.productTemplate(item))
         return content;
@@ -439,67 +507,183 @@ function renderSelect(selectPicker, products, productContainer) {
     });
 }
 
-let shoppingCart = new Cart();
-
-let productList = new ProductList(products);
-// console.log(products)
-
-function main() {
-    const productContainer = document.querySelector('.product-container');
-    // console.log(products)
-    productContainer.innerHTML = productList.populateProductList(products);
-    let productCards = productContainer.querySelectorAll('.product');
-    // for (const item of productCards) {
-    //     new CardProduct(item);
-    // }
-    productCards.forEach(item => new CardProduct(item));
-    // let products = [];
-    // productCards.forEach(function(item) {
-    //     let id = item.querySelector('.content').getAttribute('id');
-    //     let name = item.querySelector('.product-name').textContent;
-    //     let price = item.querySelector('.product-price').textContent;
-    //     let action = item.querySelector('.badge').textContent;
-
-    //     products = [...products, {id:+id, name:name, price:+price, action:action}];
-    // })
-
-    // console.log(products)
-
-    // const findByProps = function(items, props, what) {
-    //     let result = [];
-    //     items.find((item, index) => {
-    //         if (item[props] === what) {
-    //             result.push(items[index]);
-    //         }
-    //     })
-    //     return result;
-    // }
-    // console.log(findByProps(products, "action", 'New'))
-
-    // const compare = (key, order='asc') => (a, b) => {
-    //     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0;
-    //     const A = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
-    //     const B = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
-
-    //     let comparison = 0;
-    //     comparison = (A > B) ? 1 : -1;
-    //     return (order === 'desc') ? -comparison : comparison;
-    // }
-
-    // let sorted = products.sort(compare('id', 'desc')) // 'desc'
-    // console.log(sorted)
-    const sidebar = document.getElementById('sidebar');
-
-    if (sidebar) {
-        const categoryContainer = document.getElementById('category-container');
-        populateCategories(categoryContainer, categories);
-
-        renderCategory(productContainer, '#category-container', products)
+function Store() {
+    this.init = function(key) {
+        if(!this.isset(key)) {
+            this.set(key, []);
+        }
+        return this.get(key);
+    }
+    this.isset = function(key) {
+        return this.get(key) !== null;
+    }
+    this.get = function(key) {
+        let value = localStorage.getItem(key);
+        return value === null ? null : JSON.parse(value);
+    }
+    this.set = function(key, value) {
+        return localStorage.setItem(key, JSON.stringify(value));
     }
 
-    const selectPicker = document.getElementById('selectpicker');
-    if (selectPicker) {
-        renderSelect(selectPicker, products, productContainer);
+}
+
+const badgeTemplate = (item) => `
+<div class="form-check mb-1">
+<input class="form-check-input" type="checkbox" id="id-${item}" value="${item}" name="badge">
+&nbsp;<label class="form-check-label" for="id-${item}">${item}</label>
+</div>
+`;
+
+const renderList = (products, value) => productList.populateProductList(products.filter(product => product.badge.title.includes(value)));
+
+const renderShowOnly = (showOnly, products, productContainer) => {
+    let badges = [...new Set([...products.map(item => item.badge.title)].filter(item=>item != ''))];
+
+    showOnly.innerHTML = badges.map(item => badgeTemplate(item)).join("");
+    let checkboxes = showOnly.querySelectorAll('input[name="badge"]');
+
+    let values = [];
+
+    checkboxes.forEach(item => {
+        item.addEventListener("change", e => {
+            if (e.target.checked) {
+                values.push(item.value);
+                productContainer.innerHTML = values.map(value => renderList(products, value)).join("");
+            } else {
+                if (values.length != 0) {
+                    values.pop(item.value)
+                    productContainer.innerHTML = values.map(value => renderList(products, value)).join("");
+                }
+            }
+            if (values.length == 0) {
+                productContainer.innerHTML = productList.populateProductList(products);
+            }
+            let productCards = productContainer.querySelectorAll('.product');
+            productCards.forEach(item => new CardProduct(item));
+        }) 
+    })
+}
+
+let shoppingCart = new Cart();
+let productList = new ProductList(products);
+// console.log(products)
+const cartAmount = document.getElementById('cart-amount');
+cartAmount.textContent = shoppingCart.totalAmount();
+function main() {
+    // document.cookie = "user=John;path=/;expires=Tue, 10 Jan 2026 03:01.07 GMT;" // термін збереження даних
+    // document.cookie = "user=John;path=/;expires=Tue, 10 Jan 2021 03:01.07 GMT;" // знищити запис встановивши дату життя запису в минулому
+    // console.log(document.cookie)
+    const productContainer = document.querySelector('.product-container');
+    // console.log(products)
+
+    if (productContainer) {
+        productContainer.innerHTML = productList.populateProductList(products);
+        let productCards = productContainer.querySelectorAll('.product');
+        // for (const item of productCards) {
+        //     new CardProduct(item);
+        // }
+        productCards.forEach(item => new CardProduct(item));
+        // let products = [];
+        // productCards.forEach(function(item) {
+        //     let id = item.querySelector('.content').getAttribute('id');
+        //     let name = item.querySelector('.product-name').textContent;
+        //     let price = item.querySelector('.product-price').textContent;
+        //     let action = item.querySelector('.badge').textContent;
+
+        //     products = [...products, {id:+id, name:name, price:+price, action:action}];
+        // })
+
+        // console.log(products)
+
+        // const findByProps = function(items, props, what) {
+        //     let result = [];
+        //     items.find((item, index) => {
+        //         if (item[props] === what) {
+        //             result.push(items[index]);
+        //         }
+        //     })
+        //     return result;
+        // }
+        // console.log(findByProps(products, "action", 'New'))
+
+        // const compare = (key, order='asc') => (a, b) => {
+        //     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0;
+        //     const A = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
+        //     const B = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
+
+        //     let comparison = 0;
+        //     comparison = (A > B) ? 1 : -1;
+        //     return (order === 'desc') ? -comparison : comparison;
+        // }
+
+        // let sorted = products.sort(compare('id', 'desc')) // 'desc'
+        // console.log(sorted)
+        const sidebar = document.getElementById('sidebar');
+
+        if (sidebar) {
+            const categoryContainer = document.getElementById('category-container');
+            populateCategories(categoryContainer, categories);
+
+            renderCategory(productContainer, '#category-container', products)
+        }
+
+        const selectPicker = document.getElementById('selectpicker');
+        if (selectPicker) {
+            renderSelect(selectPicker, products, productContainer);
+        }
+
+        const showOnly = document.querySelector('.show-only');
+        if(showOnly) {
+            renderShowOnly(showOnly, products, productContainer);
+        }
+    }
+
+    const cartPage = document.getElementById('cart-page');
+    if(cartPage) {
+        const shippingCartItems = cartPage.querySelector('.cart-main .table');
+        shippingCartItems.innerHTML = shoppingCart.populateShoppingCart(products);
+        shoppingCart.setCartTotal(shippingCartItems);
+    }
+
+    const checkoutPage = document.getElementById('checkout-page');
+    if (checkoutPage) {
+        const checkoutForm = checkoutPage.getElementById('checkout-form');
+        const errorMessages = document.getElementById('errorMessages');
+        function displayError(message) {
+            errorMessages.innerHTML += `<div class="error">${message}</div>`;
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        checkoutForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const {name, email, address1, address2, city, zipcode} = checkoutForm.elements;
+
+            errorMessages.innerHTML = "";
+            if (!name.value.trim()) {
+                displayError('Name field is required.')
+                return;
+            }
+            if (!address1.value.trim() || !address2.value.trim()) {
+                displayError('Address 1 or Address 2 fields is required.')
+                return;
+            }
+            if (!city.value.trim()) {
+                displayError('City field is required.')
+                return;
+            }
+            if (!zipcode.value.trim()) {
+                displayError('City postal code is required.')
+                return;
+            }
+            if (!email.value.trim() || !isValidEmail(email.value)) {
+                displayError('Please enter a valid email address.')
+                return;
+            }
+        })
     }
 }
 
