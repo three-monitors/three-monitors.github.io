@@ -1,5 +1,6 @@
 /* .dialog */
-dialog#details {
+/* dialog#details { */
+dialog {
     z-index: 10;
 
     width: 100%;
