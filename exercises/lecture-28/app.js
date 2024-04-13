@@ -44,7 +44,7 @@ form.addEventListener('submit', function (event) {
         return;
     }
     if (!password.value.trim() || !isValidPassword(password.value)) {
-        displayError('The email address must be in the correct format.')
+        displayError('Password must contain at least 8 characters, password must contain at least one uppercase letter, one lowercase letter, one number and one special character.')
         return;
     } else {
         alert('Registration is successful'); //no task

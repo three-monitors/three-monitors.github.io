@@ -2,9 +2,7 @@
 // В методі constructor(code, message) визначити властивість this.message, що дорівнює code: message або code, якщо message не передано як аргумент.
 class AuthException extends Error {
     constructor(code, message) {
-        const message = message ? `${code}: ${message}` : code;
-        // this.message = message
-        this.message;
+        this.message = message ? `${code}: ${message}` : code;
     }
     toString() {
         return this.message;

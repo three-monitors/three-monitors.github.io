@@ -569,6 +569,7 @@ let productList = new ProductList(products);
 // console.log(products)
 const cartAmount = document.getElementById('cart-amount');
 cartAmount.textContent = shoppingCart.totalAmount();
+
 function main() {
     // document.cookie = "user=John;path=/;expires=Tue, 10 Jan 2026 03:01.07 GMT;" // термін збереження даних
     // document.cookie = "user=John;path=/;expires=Tue, 10 Jan 2021 03:01.07 GMT;" // знищити запис встановивши дату життя запису в минулому
@@ -778,12 +779,12 @@ template.innerHTML = `
 
             <section class="footer-social py-3">
                 <ul class="footer-social-list">
-                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                    <li><a href=""><i class="fab fa-github"></i></a></li>
-                    <li><a href=""><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href=""><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-github"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                 </ul>
             </section>
            
