@@ -8,6 +8,8 @@
 
 const currency = (total) => parseFloat(Math.round(total * 100) / 100).toFixed(2);
 
+const filterItem = (items, id) => items.filter(item => item.id != id);
+const findItem = (items, id) => items.find(item => item.id == id);
 const compare = (key, order='acs') => (a, b) => {
     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0;
     
@@ -44,7 +46,7 @@ function Product(id, name, price, image) {
 }
 
 
-function CardProduct(item) {
+function CardProduct(productList, item) {
     
     this.item = item;
    
@@ -95,12 +97,34 @@ function CardProduct(item) {
     const closeButton = dialog.querySelector("dialog .close");
     let dialogMain = dialog.querySelector("dialog .dialog-main");
     
-    
+    function renderModal(modal) {
+        modal.querySelector('.btn-inc').addEventListener('click', e => {
+            let val = e.target.previousElementSibling.value;
+            val++;
+            e.target.previousElementSibling.value = val;
+        });
+        modal.querySelector('.btn-dec').addEventListener('click', e => {
+            let val = e.target.nextElementSibling.value;
+            if (val > 1) {
+                val--;
+            }    
+            e.target.nextElementSibling.value = val;
+        });
+        let quantityResult = modal.querySelector('.quantity-result');
+        let addToCart = modal.querySelector('.add-to-cart');
+        addToCart.addEventListener('click', e => {
+            let id = e.target.closest('.to-cart').dataset.id;
+            let product = productList.getProductById(id);
+            product = {...product, amount: +quantityResult.value};
+            shoppingCart.addItemToCart(product);
+        })
+    }    
     showButton.addEventListener("click", event => {
         let parent = event.target.closest('.product');
         let id = parent.dataset.id;
         dialogMain.innerHTML = detailTemplate(productList.getProductById(id))
         dialog.showModal();
+        renderModal(dialogMain)
     });
     
     closeButton.addEventListener("click", () => {
@@ -143,18 +167,28 @@ function Cart(tax = 0.07, shipping = 0) {
         this.price = price;
         this.amount = amount;
     }
-    const cartItemTemplate = (item, product) => `
-    
+    const cartItemTemplate = (item, product) => `    
     <div class="row cart-item" id="id${product.id}">
         <div class="cell"><img src="${product.image}" alt="${product.name}" height="30"></div>
         <div class="cell">${product.name}</div>
         <div class="cell"><span class="product-price price">${product.price}</span></div>
-        <div class="cell">${item.amount}</div>
+        <div class="cell">        
+            <div class="number-input quantity" data-id="${product.id}">
+                <button class="btn btn-dec">-</button>
+                <input class="quantity-result"
+                        type="number" 
+                        value="${item.amount}"
+                         min="1"
+                        max="10"
+                        required 
+                        />
+                <button class="btn btn-inc">+</button>
+            </div>
+        </div>
         <div class="cell"><span class="product-subtotal price">0</span></div>
-        <div class="cell"><a href="#!" class="fas fa-trash-alt"></a></div>
+        <div class="cell"><a href="#!" data-id="${product.id}" class="fas fa-trash-alt"></a></div>
     </div>
     `;
-
     const findItem = (items, id) => items.find(item => item.id == id);
     this.populateShoppingCart = (products) => {
         let result = `
@@ -252,8 +286,6 @@ function Cart(tax = 0.07, shipping = 0) {
         cart = [];
         this.saveCart();
     }
-
-}
 
 // let addToCart = productContainer.querySelector('.add-to-cart');
 // let showDetail = productContainer.querySelector('.show-detail');
@@ -366,6 +398,37 @@ function Cart(tax = 0.07, shipping = 0) {
 //         console.log(item)
 //     })
 // }
+
+    this.renderCart = function(shippingCartItems) {
+        this.setCartTotal(shippingCartItems)
+        shippingCartItems.addEventListener('click', event => {
+            if(event.target.classList.contains('fa-trash-alt')) {
+                cart = filterItem(cart, event.target.dataset.id);
+                this.setCartTotal(shippingCartItems)
+                this.saveCart();
+                event.target.closest('.cart-item').remove();
+            } else if (event.target.classList.contains('btn-inc')) {
+                let tmp = findItem(cart, event.target.closest('.quantity').dataset.id);
+                tmp.amount += 1;
+                console.log("tmp ", tmp)
+                event.target.previousElementSibling.value = tmp.amount;
+                this.setCartTotal(shippingCartItems)
+                this.saveCart();
+            }else if (event.target.classList.contains('btn-dec')) {
+                let tmp = findItem(cart, event.target.closest('.quantity').dataset.id);
+                if (tmp !== undefined && tmp.amount > 1){
+                    tmp.amount -= 1;
+                event.target.nextElementSibling.value = tmp.amount;
+                } else {
+                    cart = filterItem(cart, event.target.dataset.id);
+                    event.target.closest('.cart-item').remove();
+                }
+                this.setCartTotal(shippingCartItems)
+                this.saveCart();
+            }
+        })
+    }
+}
 
 const starsTemplate = (n) => Array(n).fill('&starf;').concat(Array(5 - n).fill('&star;')).join('');
 
@@ -565,25 +628,46 @@ const renderShowOnly = (showOnly, products, productContainer) => {
 }
 
 let shoppingCart = new Cart();
-let productList = new ProductList(products);
+// let productList = new ProductList(products);
 // console.log(products)
 const cartAmount = document.getElementById('cart-amount');
 cartAmount.textContent = shoppingCart.totalAmount();
+
+async function fetchData(url) {
+    return await fetch(url, {
+        method: 'GET',
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => {
+        if(response.status >= 400) {
+            return response.json().then(err => {
+                const error = new Error('Something went wrong!')
+                error.data = err
+                throw error
+            })
+        }
+        return response.json()
+    })
+}
 
 function main() {
     // document.cookie = "user=John;path=/;expires=Tue, 10 Jan 2026 03:01.07 GMT;" // термін збереження даних
     // document.cookie = "user=John;path=/;expires=Tue, 10 Jan 2021 03:01.07 GMT;" // знищити запис встановивши дату життя запису в минулому
     // console.log(document.cookie)
+    const url = "https://my-json-server.typicode.com/couchjanus/db";
     const productContainer = document.querySelector('.product-container');
     // console.log(products)
 
     if (productContainer) {
-        productContainer.innerHTML = productList.populateProductList(products);
-        let productCards = productContainer.querySelectorAll('.product');
+        fetchData(`${url}/products`)
+        .then(products => {
+            let productList = new ProductList(products);
+            productContainer.innerHTML = productList.populateProductList(products);
+            let productCards = productContainer.querySelectorAll('.product');
         // for (const item of productCards) {
         //     new CardProduct(item);
         // }
-        productCards.forEach(item => new CardProduct(item));
+        productCards.forEach(item => new CardProduct(productList, item));
         // let products = [];
         // productCards.forEach(function(item) {
         //     let id = item.querySelector('.content').getAttribute('id');
@@ -623,9 +707,14 @@ function main() {
 
         if (sidebar) {
             const categoryContainer = document.getElementById('category-container');
-            populateCategories(categoryContainer, categories);
 
+            fetchData(`${url}/categories`)
+            .then(categories => {
+
+            populateCategories(categoryContainer, categories);
+            
             renderCategory(productContainer, '#category-container', products)
+            })
         }
 
         const selectPicker = document.getElementById('selectpicker');
@@ -643,8 +732,9 @@ function main() {
     if(cartPage) {
         const shippingCartItems = cartPage.querySelector('.cart-main .table');
         shippingCartItems.innerHTML = shoppingCart.populateShoppingCart(products);
-        shoppingCart.setCartTotal(shippingCartItems);
-        
+        shoppingCart.renderCart(shippingCartItems)
+        // shoppingCart.setCartTotal(shippingCartItems);
+                
         let isAuth = auth => auth ?? false;
 
         class AuthException extends Error {
