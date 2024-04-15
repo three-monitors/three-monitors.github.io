@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Exercises for lecture #2 п.1.Відредагуйте файл index.html --> 
+    <title><h1>Моя домашня сторінка</h1></title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Підключити css/main.css за допомогою тега link -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- page header -->
+    <header>
+        <!-- brand -->
+        <strong>Three Monitors</strong>
+        <!-- navigation -->
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="about.html">Про нас</a>
+            <a href="catalog.html">Каталог</a>
+            <a href="contact.html">Контакти</a>
+        </nav>
+        <!-- Lecture 05 p.11 В розділі header створіть ЩЕ ОДИН підрозділ nav -->
+        <nav>
+            <!-- navigation -->
+            <a href="index.html">Home</a>
+            <a href="catalog.html">Catalog</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+    	</nav>
+        <!-- Lecture 05 p.11 створіть тут підрозділ nav з таким вмістом
+        Перегляньте документацію для font-awesome, знайдіть іконки кошик замовлення, сердечко та користувач. Для кожного з посилань визначте атрибут class зі значенням, що дорівнює одній з цих іконок
+        -->
+        <nav>
+            <a href="#" class="far fa-heart"></a>
+            <a href="cart.html" class="fas fa-dolly-flatbed"></a>
+            <a href="#!" class="far fa-user"></a>
+        </nav>
+    </header>
+
+    <!-- Exercises for lecture #2 п.1.Відредагуйте файл index.html
+    <h1>Hello world!</h1>
+     -->
+    
+     <!-- footer -->
+    <footer>
+        <!-- створити тут секцію -->
+        <section>
+            <!-- створити тут div -->
+            <div>
+                <h2>About</h2>
+                <!-- 
+	            створити тут невпорядкований список з такмсм елементами 
+	  	        <a href="#">Services</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Pricing</a>
+                <a href="#">Customers</a>
+                <a href="#">Careers</a>
+	            -->
+                <ul>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Customers</a></li>
+                    <!-- https://youtu.be/Jzg07ER4dDc 18:40 Careers перейменовано на Exercises
+                    <li><a href="#">Careers</a></li>
+                    -->
+                    <li><a href="./exercises/index.html">Exercises</a></li>
+                </ul>
+
+                <!-- створити тут div -->
+                <div>
+                    <h2>Resources</h2>
+                    <!-- 
+                    створити тут невпорядкований список з такмсм елементами 
+                    <a href="#">Docs</a>
+                    <a href="#">Blog</a>
+                    <a href="#">eBooks</a>
+                    <a href="#">Webinars</a>
+                    -->
+                    <ul>
+                        <li><a href="#">Docs</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">eBooks</a></li>
+                        <li><a href="#">Webinars</a></li>
+                    </ul>
+                </div>
+
+                <!-- створити тут div -->
+                <div>
+                    <h2>Contact</h2>
+                    <!-- 
+	                створити тут невпорядкований список з такмсм елементами 
+	  	            <a href="#">Help</a>
+                    <a href="#">Sales</a>
+                    <a href="#">Advertise</a>
+	                -->
+                    <ul>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Sales</a></li>
+                        <li><a href="#">Advertise</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Lesson 02 p.6 Кожна сторінка повинна мати такі розділи ... - footer ...
+            Розділ footer повинен містити абсолютні посилання на зовнішні сторінки та відкривати відповідний документ у новому вікні -->
+        <a href="https://google.com" target="_blank">Google</a>
+        <a href="https://www.google.com.ua" target="_blank">Google.com.ua</a>
+
+        <!-- Footer legal -->
+        <!-- створити тут section -->
+        <section>
+            <!-- 
+	        створити тут невпорядкований список з такмсм елементами 
+	  	    <a href="#">Terms &amp; Conditions</a>
+            <a href="#">Privacy Policy</a>
+            &copy; 2024 Copyright Shopaholic Inc.
+	        -->
+            <ul>
+                <a href="#">Terms &amp; Conditions</a>
+                <a href="#">Privacy Policy</a>
+                &copy; 2024 Copyright Shopaholic Inc
+            </ul>
+        </section>
+        <!--
+        Lesson 05 p.10.Відредагуйте файл index.html
+        В розділі footer створіть section з атрибутом class="footer-social.
+        В середині цієї секції розмістіть елемент ul з атрибутом class="list-unstyled".
+        В середині ul розмістіть елементи li, кожний з яких має містити посилання на одну з соціальних мереж - facebook, twitter, github, linkedin, youtube, instagram".
+        Перегляньте документацію для font-awesome, знайдіть іконки відповідних соц-мереж та вставте їх як текст посилань.
+        -->
+        <section class="footer-social">
+            <ul class="list-unstyled">
+                <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                <li><a href=""><i class="fab fa-github"></i></a></li>
+                <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+                <li><a href=""><i class="fab fa-youtube"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </section>
+    </footer>
+</body>
+</html>
