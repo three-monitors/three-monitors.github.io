@@ -28,6 +28,8 @@ function closeDialog() {
 // Створіть змінну checkAuth, яка дорівнює результату пошуку селектора з класом check-auth у файлі index.html.
 let checkAuth = document.querySelector('.check-auth');
 
+let eMessage = dialogBoxId.querySelector('.message');
+
 // За допомогою addEventListener, виконайте обробку події click на змінній checkAuth. Функція зворотного зв'язку обробки цієї події повинна запускати блок try { } catch(e) {}.
 checkAuth.addEventListener('click', () => {
     try {
@@ -41,11 +43,12 @@ checkAuth.addEventListener('click', () => {
         }
     } catch(e) {
         // У блоці catch() перехопити цей виняток та передати сформоване повідомлення про помилку у діалог dialogBoxId, відобразивши його у параграфі з класом ="message".
-        console.error(e)
-        console.error(e.toString())
-        showDialog(e.toString())
-        dialogBoxId.querySelector('.message').textContent = error.toString();
+        // console.error(e)
+        // console.error(e.toString())
+        // showDialog(e.toString())
+        const dialogBoxId = document.getElementById("dialogBox");
+        dialogBoxId.querySelector(".message").textContent = e.toString();
         showDialog();
-        dialogBoxId.close();
-        }
+        // dialogBoxId.close();
+    }
 })

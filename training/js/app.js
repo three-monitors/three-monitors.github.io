@@ -627,9 +627,10 @@ const renderShowOnly = (showOnly, products, productContainer) => {
     })
 }
 
-let shoppingCart = new Cart();
-// let productList = new ProductList(products);
+
+let productList = new ProductList(products); // comment!!!!!!!
 // console.log(products)
+let shoppingCart = new Cart();
 const cartAmount = document.getElementById('cart-amount');
 cartAmount.textContent = shoppingCart.totalAmount();
 
@@ -659,73 +660,74 @@ function main() {
     // console.log(products)
 
     if (productContainer) {
-        fetchData(`${url}/products`)
-        .then(products => {
+        // fetchData(`${url}/products`) // cancel comment!!!!!!!
+        // .then(products => { // 
             let productList = new ProductList(products);
             productContainer.innerHTML = productList.populateProductList(products);
             let productCards = productContainer.querySelectorAll('.product');
-        // for (const item of productCards) {
-        //     new CardProduct(item);
-        // }
-        productCards.forEach(item => new CardProduct(productList, item));
-        // let products = [];
-        // productCards.forEach(function(item) {
-        //     let id = item.querySelector('.content').getAttribute('id');
-        //     let name = item.querySelector('.product-name').textContent;
-        //     let price = item.querySelector('.product-price').textContent;
-        //     let action = item.querySelector('.badge').textContent;
+            // for (const item of productCards) {
+            //     new CardProduct(item);
+            // }
+            productCards.forEach(item => new CardProduct(productList, item));
+            // let products = [];
+            // productCards.forEach(function(item) {
+            //     let id = item.querySelector('.content').getAttribute('id');
+            //     let name = item.querySelector('.product-name').textContent;
+            //     let price = item.querySelector('.product-price').textContent;
+            //     let action = item.querySelector('.badge').textContent;
 
-        //     products = [...products, {id:+id, name:name, price:+price, action:action}];
-        // })
+            //     products = [...products, {id:+id, name:name, price:+price, action:action}];
+            // })
 
-        // console.log(products)
+            // console.log(products)
 
-        // const findByProps = function(items, props, what) {
-        //     let result = [];
-        //     items.find((item, index) => {
-        //         if (item[props] === what) {
-        //             result.push(items[index]);
-        //         }
-        //     })
-        //     return result;
-        // }
-        // console.log(findByProps(products, "action", 'New'))
+            // const findByProps = function(items, props, what) {
+            //     let result = [];
+            //     items.find((item, index) => {
+            //         if (item[props] === what) {
+            //             result.push(items[index]);
+            //         }
+            //     })
+            //     return result;
+            // }
+            // console.log(findByProps(products, "action", 'New'))
 
-        // const compare = (key, order='asc') => (a, b) => {
-        //     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0;
-        //     const A = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
-        //     const B = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
+            // const compare = (key, order='asc') => (a, b) => {
+            //     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0;
+            //     const A = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
+            //     const B = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
 
-        //     let comparison = 0;
-        //     comparison = (A > B) ? 1 : -1;
-        //     return (order === 'desc') ? -comparison : comparison;
-        // }
+            //     let comparison = 0;
+            //     comparison = (A > B) ? 1 : -1;
+            //     return (order === 'desc') ? -comparison : comparison;
+            // }
 
-        // let sorted = products.sort(compare('id', 'desc')) // 'desc'
-        // console.log(sorted)
-        const sidebar = document.getElementById('sidebar');
+            // let sorted = products.sort(compare('id', 'desc')) // 'desc'
+            // console.log(sorted)
+            const sidebar = document.getElementById('sidebar');
 
-        if (sidebar) {
-            const categoryContainer = document.getElementById('category-container');
+            if (sidebar) {
+                const categoryContainer = document.getElementById('category-container');
 
-            fetchData(`${url}/categories`)
-            .then(categories => {
+                fetchData(`${url}/categories`)
+                .then(categories => {
 
-            populateCategories(categoryContainer, categories);
-            
-            renderCategory(productContainer, '#category-container', products)
-            })
-        }
+                populateCategories(categoryContainer, categories);
+                
+                renderCategory(productContainer, '#category-container', products)
+                })
+            }
 
-        const selectPicker = document.getElementById('selectpicker');
-        if (selectPicker) {
-            renderSelect(selectPicker, products, productContainer);
-        }
+            const selectPicker = document.getElementById('selectpicker');
+            if (selectPicker) {
+                renderSelect(selectPicker, products, productContainer);
+            }
 
-        const showOnly = document.querySelector('.show-only');
-        if(showOnly) {
-            renderShowOnly(showOnly, products, productContainer);
-        }
+            const showOnly = document.querySelector('.show-only');
+            if(showOnly) {
+                renderShowOnly(showOnly, products, productContainer);
+            }
+        // }); // cancel comment!!!!!!!
     }
 
     const cartPage = document.getElementById('cart-page');

@@ -4,7 +4,7 @@ const template = (item) => `
 `;
 
 // 1. У файлі index.html є форма з 2-ма полями. Написати асинхронну функцію, що чекає 10 секунд, поки користувач заповнює поля форми. Після чого функція читає значення полів форми, зберігає їх у змінних firstName і lastName та перевіряє чи вони не пусті. Якщо обидва значення пусті, функція змінює контент h1 на I'm miss You. Якщо хоча б одне зі значень заповнене, функція змінює контент h1 на Hello firstName lastName!
-setTimeout(myFunction, 5000);
+setTimeout(myFunction, 10000);
 function myFunction() {
     const firstName = demoForm.elements.firstName.value;
     console.log(firstName)
