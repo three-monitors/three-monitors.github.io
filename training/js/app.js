@@ -655,7 +655,8 @@ function main() {
     // document.cookie = "user=John;path=/;expires=Tue, 10 Jan 2026 03:01.07 GMT;" // термін збереження даних
     // document.cookie = "user=John;path=/;expires=Tue, 10 Jan 2021 03:01.07 GMT;" // знищити запис встановивши дату життя запису в минулому
     // console.log(document.cookie)
-    const url = "https://my-json-server.typicode.com/couchjanus/db";
+    // const url = "https://my-json-server.typicode.com/couchjanus/db";
+    const url = "https://three-monitors.github.io/training/js/db.json";
     const productContainer = document.querySelector('.product-container');
     // console.log(products)
 
