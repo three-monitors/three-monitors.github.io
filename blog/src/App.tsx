@@ -1,99 +1,73 @@
+// Exersise 35
+
+// src/App.tsx
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
+import Blog from './components/Blog';
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Gallery from './components/Gallery';
-// import Profile from './components/Profile';
-// import Hello, {formatDate, Calc} from './components/Hello';
+// function App() {
 
-// Lecture 34
+//   let post = {
+//     id: 1,
+//     title: "Programming Algorithm",
+//     content: `The word Algorithm means “a process or set of rules to be followed in calculations or other problem-solving operations”. Therefore Algorithm refers to a set of rules/instructions that step-by-step define how a work is to be executed upon in order to get the expected results.`,
+//     cover: "/vite.svg",
+//     likes: 5
+//   };
 
-// function Welcome() {
-//   return <h1>Hello component</h1>
-// }
-
-// function Welcome(props) {
-//   // props name = "bla bla" // forbidden
-//   return <h1>Hello, {props.name}</h1>
-// }
-
-// function Welcome(props:any) {
-//   // props name = "bla bla" // forbidden
-//   return <h1>Hello, {props.name}</h1>
-// }
-
-// function formatDate(date) {
-//   return new Intl.DateTimeFormat(
-//     'en-US', {wekday: 'long'}
-//   ).format(date)
-// }
-
-// export function Calc(props) {
-//   const sum = props.a + props.b;
-
-//   const today = new Date()
-  
 //   return (
 //     <>
-//       <h2>It's today: {formatDate(today)}</h2>
-//       <p>Hi, I am {props.name}!</p>
-//       <p>The sum of the numeric props I received is {sum}</p>
+//       <div>
+//         <a href="https://vitejs.dev" target="_blank">
+//           <img src={viteLogo} className="logo" alt="Vite logo" />
+//         </a>
+//         <a href="https://react.dev" target="_blank">
+//           <img src={reactLogo} className="logo react" alt="React logo" />
+//         </a>
+//       </div>
+//       <h1>Vite + React</h1> 
+//       <Blog post={post} key={post.id} />
 //     </>
 //   )
 // }
 
-// function Header(props) {
-//   console.log(props)
-//   return <h1>Hello component</h1>
-// }
+// export default App
 
-// const jsxEl = <h1>I am a JSX element</h1>;
 
-// const H1 = <h1>Hello world</h1>;
-// const H2 = <h2>Hi there</h2>
+// Lecture 35
 
-// const Header = (
-//   <header>
-//   {H1}
-//   {H2}
-//   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iure eum cupiditate est. Totam earum omnis laboriosam! Molestiae deleniti natus quas assumenda aperiam cupiditate, harum error deserunt, unde eum iure.</p>
-//   </header>
-// )
+// import { useState } from 'react'
+// import './App.css'
 
-// const data = {
-//   H1: <h1>Hello world</h1>,
-//   H2: <h2>Hi there</h2>
-// }
-
-// const Header = (
-//   <header>
-//   {data.H1}
-//   {data.H2}
-//   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iure eum cupiditate est. Totam earum omnis laboriosam! Molestiae deleniti natus quas assumenda aperiam cupiditate, harum error deserunt, unde eum iure.</p>
-//   </header>
-// )
-
-// Exersise 34
+// import Navbar from './components/Navbar';
+// import Footer from './components/Footer';
+// import Gallery from './components/Gallery';
+// import Profile from './components/Profile';
+// import Hello, {formatDate, Calc} from './components/Hello';
+// import Post from './components/Post';
+// import Blog from './components/Blog';
 
 
 function App() {
-  // const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
   // const today = new Date()
+  
+  // const post = {
+  //   "id": "1",
+  //   "title": "Що таке Lorem Ipsum?",
+  //   "content": "Lorem Ipsum - це текст-риба, що використовується в друкарстві та дизайні. Lorem Ipsum є, фактично, стандартною рибою аж з XVI сторіччя, коли невідомий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів.",
+  //   "cover":	"https://couchjanus.github.io/images/product-5.jpg",
+  //   "authorId": 2,
+  //   "datePublished": 1712002031418,
+  //   "numComments": 2,
+  //   "likes": 7
+  // };
 
   return (
     <>
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      {/* <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -101,34 +75,16 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
-      </div> */}
-
-      {/* {jsxEl} */}
-
-      {/* {Header} */}
-
-      {/* <Welcome></Welcome> */}
-      {/* <Welcome name="React component" /> */}
-      {/* <Welcome name="world" />
-      <Welcome name="me" />
-      <Welcome name="component" />
-
-      <Calc name="Calc" a={77} b={55} />
-
-      <Calc name="Smart Calc" a={2} b={2} />
-
-      <Header />
-
-      <Hello name="Hello component" /> */}
-      <Navbar />
-      <Gallery />
-      <Footer />
-
-      {/* <h3 style={{ backgroundColor:'blue', color:'gold' }}>It's today: {today.toLocaleDateString()}</h3> */}
-
-      {/* <p className="read-the-docs">
+      </div>
+      <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
+
+      {/* Lecture 35 */}
+      {/* <Post post={post} /> */}
+
+      <Blog />
+
     </>
   )
 }
