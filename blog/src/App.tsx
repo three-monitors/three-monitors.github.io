@@ -3,16 +3,54 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-// Lecture 33
-// const jsxEl = <h1>I am a JSX element</h1>;
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Gallery from './components/Gallery';
+// import Profile from './components/Profile';
+// import Hello, {formatDate, Calc} from './components/Hello';
 
-// const Header = (
-//   <header>
-//   <h1>Hello world</h1>
-//   <h2>Hi there</h2>
-//   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iure eum cupiditate est. Totam earum omnis laboriosam! Molestiae deleniti natus quas assumenda aperiam cupiditate, harum error deserunt, unde eum iure.</p>
-//   </header>
-// )
+// Lecture 34
+
+// function Welcome() {
+//   return <h1>Hello component</h1>
+// }
+
+// function Welcome(props) {
+//   // props name = "bla bla" // forbidden
+//   return <h1>Hello, {props.name}</h1>
+// }
+
+// function Welcome(props:any) {
+//   // props name = "bla bla" // forbidden
+//   return <h1>Hello, {props.name}</h1>
+// }
+
+// function formatDate(date) {
+//   return new Intl.DateTimeFormat(
+//     'en-US', {wekday: 'long'}
+//   ).format(date)
+// }
+
+// export function Calc(props) {
+//   const sum = props.a + props.b;
+
+//   const today = new Date()
+  
+//   return (
+//     <>
+//       <h2>It's today: {formatDate(today)}</h2>
+//       <p>Hi, I am {props.name}!</p>
+//       <p>The sum of the numeric props I received is {sum}</p>
+//     </>
+//   )
+// }
+
+// function Header(props) {
+//   console.log(props)
+//   return <h1>Hello component</h1>
+// }
+
+// const jsxEl = <h1>I am a JSX element</h1>;
 
 // const H1 = <h1>Hello world</h1>;
 // const H2 = <h2>Hi there</h2>
@@ -38,42 +76,16 @@ import './App.css'
 //   </header>
 // )
 
-// Exersise 33
-// 3. Cтворити новий JSX-елемент з назвою jsxElement з таким вмістом:
-const jsxElement = <h1>I am a JSX element</h1>;
+// Exersise 34
 
-// 4. Cтворити новий JSX-елемент header з таким вмістом:
-const Header = (
-  <header>
-    <h1>Welcome to React</h1>
-    <h2>Getting Started React</h2>
-    <h3>JavaScript Library</h3>
-  </header>
-)
-
-// 5. Cтворити новий JSX-фрагмент з таким вмістом
-const Fragment = (
-  <>
-    <h1>Welcome to React</h1>
-    <h2>Getting Started React</h2>
-    <h3>JavaScript Library</h3>
-  </>
-)
-
-// 6. Cтворити новий JSX-елемент footer з таким вмістом:
-const Footer = (
-  <footer>
-    <p>Copyright &copy; 2024</p>
-  </footer>
-)
 
 function App() {
-  const [count, setCount] = useState(0);
-  const today = new Date()
+  // const [count, setCount] = useState(0);
+  // const today = new Date()
 
   return (
     <>
-      <div>
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -89,27 +101,34 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
-      </div>
+      </div> */}
 
-      {/* {jsxEl} */}      
+      {/* {jsxEl} */}
+
+      {/* {Header} */}
+
+      {/* <Welcome></Welcome> */}
+      {/* <Welcome name="React component" /> */}
+      {/* <Welcome name="world" />
+      <Welcome name="me" />
+      <Welcome name="component" />
+
+      <Calc name="Calc" a={77} b={55} />
+
+      <Calc name="Smart Calc" a={2} b={2} />
+
+      <Header />
+
+      <Hello name="Hello component" /> */}
+      <Navbar />
+      <Gallery />
+      <Footer />
 
       {/* <h3 style={{ backgroundColor:'blue', color:'gold' }}>It's today: {today.toLocaleDateString()}</h3> */}
 
-      {/* 3. Відобразити елемент jsxElement */}
-      {jsxElement}
-      
-      {/* 4. Відобразити елемент header */}
-      {Header}
-
-      {/* 5. Відобразити JSX-фрагмент */}
-      {Fragment}
-
-      {/* 6. Відобразити елемент footer */}
-      {Footer}
-
-      <p className="read-the-docs">
+      {/* <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
     </>
   )
 }
