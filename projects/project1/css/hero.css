@@ -1,0 +1,47 @@
+/* hero */
+
+.hero {
+    background-position: right center;
+    background-size: cover;
+    padding-top: 22rem;
+    background-color: aliceblue;
+    color: white;
+    text-shadow: rgb(0 0 0 / 0.5) 2px 2px 2px;
+    background-image: url(../images/bg-banner.jpg);
+    height:45rem;
+    width: 100%;
+    margin-top: 0;
+}
+
+.innline-content {
+    position:relative;
+    width: 100%;
+    height: 40rem;
+    background-image: url(../images/bg-banner2.png);
+    margin-top: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 65%;
+    background-color: rgba(49,53,61,0.9);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:0px;
+    overflow: hidden;
+}
+
+.text {
+    box-sizing:border-box;
+    position:absolute;
+    top: 30%;
+    left: 27%;
+    width: 50%;
+    height: 40%;
+    color:white;
+}

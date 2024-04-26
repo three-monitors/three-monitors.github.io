@@ -2,28 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Про нас</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-    <!-- header -->
-    <header>
-        <!-- Розділ header повинен містити тег заголовку 1-го ріаня -->
-        <h1>Про нас</h1>
+    <!-- page header -->
+    <header class="page-header mb-3">
+        <!-- brand -->
+        <a href="./index.html" class="brand">HAIR & LASHES</a>
         <!-- navigation -->
-        <!-- Розділ nav повинен містити відносні посилання на сторінки сайта -->
-        <nav>
-            <a href="index.html">Головна</a>
-            <a href="catalog.html">Каталог</a>
-            <a href="blog.html">Blog</a>
-            <a href="contact.html">Контакти</a>
+        <nav class="navbar">
+            <a href="./index.html">Головна</a>
+            <a href="./catalog.html">Каталог</a>
+            <a href="./blog.html">Блог</a>
+            <a href="./about.html">Про нас</a>
+            <a href="./contact.html">Контакти</a>
+        </nav>
+        <nav class="toolbar">
+            <a href="#" class="far fa-heart"></a>
+            <a href="./cart.html" class="fas fa-dolly-flatbed">(<span id="cart-amount">0</span>)</a>
+            <a href="#" class="far fa-user"></a>
         </nav>
     </header>
-    <!-- footer -->
-    <footer>
-        <!-- Розділ footer повинен містити абсолютні посилання на зовнішні сторінки та відкривати відповідний документ у новому вікні -->
-        <a href="https://google.com" target="_blank">Google</a>
-        <a href="https://www.google.com.ua" target="_blank">Google.com.ua</a>
-    </footer>
+    <!-- breadcrumb -->
+    <section class="breadcrumb-bg-light mt-5">
+        <div class="container py-3 px-5">
+            <div class="breadcrumb-container">
+                <div class="breadcrumb-title">
+                    <h1>Сторінка про нас</h1>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="./index.html">Головна</a></li>
+                    <li class="breadcrumb-item active">Про нас</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <div class="two-container">
+        <!-- image slider start -->
+        <section class="section-1">
+            <section class="radio-container">
+                <div class="radio-slider">
+                    <div class="radio-slides">
+                        <!-- radio buttons start -->
+                        <input type="radio" name="radio-btn" id="radio1">
+                        <input type="radio" name="radio-btn" id="radio2">
+                        <input type="radio" name="radio-btn" id="radio3">
+                        <input type="radio" name="radio-btn" id="radio4">
+                        <!-- radio buttons end -->
+                        <!-- slide images start -->
+                        <div class="radio-slide first">
+                            <img src="./images/about-1.jpg" alt="">
+                        </div>
+                        <div class="radio-slide">
+                            <img src="./images/about-2.jpg" alt="">
+                        </div>
+                        <div class="radio-slide">
+                            <img src="./images/about-3.jpg" alt="">
+                        </div>
+                        <div class="radio-slide">
+                            <img src="./images/about-4.jpg" alt="">
+                        </div>
+                        <!-- slide images end -->
+                        <!-- automatic navigation start -->
+                        <div class="navigation-auto">
+                            <div class="auto-btn1"></div>
+                            <div class="auto-btn2"></div>
+                            <div class="auto-btn3"></div>
+                            <div class="auto-btn4"></div>
+                        </div>
+                        <!-- automatic navigation end -->
+                    </div>
+                    <!-- manual navigation start -->
+                    <div class="navigation-manual">
+                        <label for="radio1" class="manual-btn"></label>
+                        <label for="radio2" class="manual-btn"></label>
+                        <label for="radio3" class="manual-btn"></label>
+                        <label for="radio4" class="manual-btn"></label>
+                    </div>
+                    <!-- manual navigation end -->
+                </div>
+                <!-- image slider end -->
+            </section>
+        </section>
+        <section class="section-2">
+            <section class="text-container">
+                <h2 class="text-center text-shadow text-light py-1 italic">Наша захоплююча історія</h2>
+                <h3 class="text-center py-2 first-letter italic">Густе, шовковисте та блискуче волосся це візитівка кожної жінки. Саме таким вихваляються дівчата з телеекранів та обкладинок журналів.</h3>
+                <h3 class="text-center py-2 first-letter italic">Адже саме волосся здатне зачарувати та справити незабутнє враження. Виразні та привабливі вії створять дивовижний погляд та доповнять неймовірний образ.</h3>
+                <h3 class="text-center py-2 first-letter italic">Мрієте про розкішне волосся? Хочете мати неперевершений погляд? Наші постійні клієнти легко досягають такого ефекту. Спробуйте і Ви.</h3>
+            </section>
+        </section>
+    </div>
+    <script src="./js/db.js"></script>
+    <script src="./js/app.js"></script>
+    <!-- page footer -->
 </body>
 </html>

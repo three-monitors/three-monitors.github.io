@@ -3,149 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Exercises for lecture #2 п.1.Відредагуйте файл index.html --> 
-    <title><h1>Моя домашня сторінка</h1></title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <!-- Підключити css/main.css за допомогою тега link -->
-    <link rel="stylesheet" href="css/main.css">
+    <title><h1>Мій сайт</h1></title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
+    <svg width="0" height="0" hidden>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 34" id="pay" fill="none" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M16 29H12C11.4477 29 11 28.5523 11 28C11 27.4477 11.4477 27 12 27H16C16.5523 27 17 27.4477 17 28C17 28.5523 16.5523 29 16 29Z"></path>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M36 10H34V4C34 1.79086 32.2091 0 30 0H4C1.79086 0 0 1.79086 0 4V20C0 22.2091 1.79086 24 4 24H6V30C6 32.2091 7.79086 34 10 34H36C38.2091 34 40 32.2091 40 30V14C40 11.7909 38.2091 10 36 10ZM6 22H4C2.89543 22 2 21.1046 2 20V4C2 2.89543 2.89543 2 4 2H30C31.1046 2 32 2.89543 32 4V10H10C7.79086 10 6 11.7909 6 14V22ZM8 14C8 12.8954 8.89543 12 10 12H36C37.1046 12 38 12.8954 38 14V17H8V14ZM8 19V22H38V19H8ZM8 30V24H38V30C38 31.1046 37.1046 32 36 32H10C8.89543 32 8 31.1046 8 30Z"></path>
+    </svg>
+    <svg width="0" height="0">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 38" id="delivery" fill="none" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.00001 23.5387V27.7002C2.00001 28.0954 2.23274 28.4535 2.59387 28.614L18 35.4612V17.6398C17.9264 17.6137 17.8535 17.5847 17.7816 17.5528L2.00001 10.5387V15.3501L7.8308 17.9416C8.33549 18.1659 8.56278 18.7568 8.33847 19.2615C8.11417 19.7662 7.52321 19.9935 7.01852 19.7692L2.00001 17.5387V21.3501L7.8308 23.9416C8.33549 24.1659 8.56278 24.7568 8.33847 25.2615C8.11417 25.7662 7.52321 25.9935 7.01852 25.7692L2.00001 23.5387ZM5.43377e-06 21.9771V16.0217C-0.00032665 16.0069 -0.000328013 15.992 5.4331e-06 15.9771L5.43377e-06 10.2997C5.43377e-06 9.11414 0.698206 8.03978 1.78159 7.55828L17.7816 0.447164C18.5573 0.10241 19.4427 0.10241 20.2184 0.447164L36.2184 7.55828C37.3018 8.03978 38 9.11414 38 10.2997V27.7002C38 28.8858 37.3018 29.9601 36.2184 30.4417L20.2184 37.5528C19.4427 37.8975 18.5573 37.8975 17.7816 37.5528L1.78159 30.4417C0.698206 29.9601 5.43377e-06 28.8858 5.43377e-06 27.7002V22.0217C-0.00032665 22.0069 -0.000328013 21.992 5.4331e-06 21.9771H5.43377e-06ZM20 35.4612L35.4061 28.614C35.7673 28.4535 36 28.0954 36 27.7002V10.5387L20.2184 17.5528C20.1465 17.5847 20.0736 17.6137 20 17.6398V35.4612ZM3.46222 8.99996L18.5939 15.7251C18.8524 15.8401 19.1476 15.8401 19.4061 15.7251L34.5378 8.99996L19.4061 2.27479C19.1476 2.15987 18.8524 2.15987 18.5939 2.27479L3.46222 8.99996Z"></path>
+    </svg>
+    <svg width="38" height="36">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 36" id="return" fill="none" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M32.7193 28.363C34.8409 25.3552 36 21.7638 36 18C36 8.05887 27.9411 0 18 0C8.05887 0 0 8.05887 0 18C0 27.9411 8.05887 36 18 36C18.5523 36 19 35.5523 19 35C19 34.4477 18.5523 34 18 34C9.16344 34 2 26.8366 2 18C2 9.16344 9.16344 2 18 2C26.8366 2 34 9.16344 34 18C34 21.3798 32.9506 24.5988 31.0298 27.288L30.2065 24.2152C30.0635 23.6818 29.5152 23.3652 28.9817 23.5081C28.4482 23.6511 28.1317 24.1994 28.2746 24.7329L29.9975 31.1629L36.4275 29.44C36.961 29.297 37.2776 28.7487 37.1347 28.2152C36.9917 27.6818 36.4434 27.3652 35.9099 27.5081L32.7193 28.363Z"></path>
+        <path d="M12.826 17.2646H13.8377C14.3481 17.2601 14.7526 17.1279 15.0511 16.8682C15.3496 16.6084 15.4988 16.2324 15.4988 15.7402C15.4988 15.2663 15.3746 14.8983 15.1263 14.6362C14.8779 14.3742 14.4985 14.2432 13.9881 14.2432C13.5415 14.2432 13.1746 14.3719 12.8875 14.6294C12.6004 14.8869 12.4568 15.223 12.4568 15.6377H10.7957C10.7957 15.1273 10.9313 14.6624 11.2024 14.2432C11.4736 13.8239 11.8519 13.4969 12.3372 13.2622C12.8226 13.0275 13.366 12.9102 13.9676 12.9102C14.9611 12.9102 15.7415 13.1597 16.3089 13.6587C16.8763 14.1577 17.16 14.8516 17.16 15.7402C17.16 16.1869 17.0175 16.6073 16.7327 17.0015C16.4479 17.3957 16.0799 17.693 15.6287 17.8936C16.1756 18.0804 16.5914 18.3743 16.8763 18.7754C17.1611 19.1764 17.3035 19.6549 17.3035 20.2109C17.3035 21.1042 16.997 21.8151 16.3841 22.3438C15.7711 22.8724 14.9656 23.1367 13.9676 23.1367C13.0105 23.1367 12.2267 22.8815 11.616 22.3711C11.0053 21.8607 10.7 21.1816 10.7 20.334H12.3611C12.3611 20.7715 12.5081 21.127 12.8021 21.4004C13.096 21.6738 13.4913 21.8105 13.9881 21.8105C14.5031 21.8105 14.9087 21.6738 15.2049 21.4004C15.5011 21.127 15.6492 20.7305 15.6492 20.2109C15.6492 19.6868 15.4943 19.2835 15.1844 19.001C14.8745 18.7184 14.4142 18.5771 13.8035 18.5771H12.826V17.2646Z"></path>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M25.3494 18.8096C25.3494 20.2406 25.0817 21.3195 24.5462 22.0464C24.0107 22.7733 23.1961 23.1367 22.1023 23.1367C21.0268 23.1367 20.2168 22.7824 19.6722 22.0737C19.1276 21.3651 18.8484 20.3158 18.8348 18.9258V17.2031C18.8348 15.7721 19.1025 14.6989 19.638 13.9834C20.1735 13.2679 20.9904 12.9102 22.0887 12.9102C23.1779 12.9102 23.9902 13.2588 24.5257 13.9561C25.0612 14.6533 25.3357 15.6969 25.3494 17.0869V18.8096ZM23.3055 14.896C23.5607 15.3312 23.6883 16.0159 23.6883 16.9502V19.1992C23.6746 20.097 23.5402 20.7567 23.285 21.1782C23.0298 21.5998 22.6355 21.8105 22.1023 21.8105C21.5464 21.8105 21.1385 21.5827 20.8787 21.127C20.6189 20.6712 20.4891 19.9785 20.4891 19.0488V16.793C20.5027 15.918 20.6372 15.2743 20.8924 14.8618C21.1476 14.4494 21.5464 14.2432 22.0887 14.2432C22.6447 14.2432 23.0503 14.4608 23.3055 14.896Z"></path>
+    </svg>
     <!-- page header -->
-    <header>
+    <header class="page-header mb-3">
         <!-- brand -->
-        <strong>Three Monitors</strong>
+        <a href="./index.html" class="brand">HAIR & LASHES</a>
+        <label for="toggler">&nbsp;<i class="fas fa-bars"></i>&nbsp;</label>
+        <input type="checkbox" id="toggler">
         <!-- navigation -->
-        <nav>
-            <a href="index.html">Головна</a>
-            <a href="about.html">Про нас</a>
-            <a href="catalog.html">Каталог</a>
-            <a href="contact.html">Контакти</a>
+        <nav class="navbar">
+            <a href="./index.html">Головна</a>
+            <a href="./catalog.html">Каталог</a>
+            <a href="./blog.html">Блог</a>
+            <a href="./about.html">Про нас</a>
+            <a href="./contact.html">Контакти</a>
         </nav>
-        <!-- Lecture 05 p.11 В розділі header створіть ЩЕ ОДИН підрозділ nav -->
-        <nav>
-            <!-- navigation -->
-            <a href="index.html">Home</a>
-            <a href="catalog.html">Catalog</a>
-            <a href="blog.html">Blog</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-    	</nav>
-        <!-- Lecture 05 p.11 створіть тут підрозділ nav з таким вмістом
-        Перегляньте документацію для font-awesome, знайдіть іконки кошик замовлення, сердечко та користувач. Для кожного з посилань визначте атрибут class зі значенням, що дорівнює одній з цих іконок
-        -->
-        <nav>
+        <nav class="toolbar">
             <a href="#" class="far fa-heart"></a>
-            <a href="cart.html" class="fas fa-dolly-flatbed"></a>
-            <a href="#!" class="far fa-user"></a>
+            <a href="./cart.html" class="fas fa-dolly-flatbed">(<span id="cart-amount">0</span>)</a>
+            <a href="#" class="far fa-user"></a>
         </nav>
     </header>
-    
-
-    <!-- Exercises for lecture #2 п.1.Відредагуйте файл index.html
-    <h1>Hello world!</h1>
-     -->
-    
-     <!-- footer -->
-    <footer>
-        <!-- створити тут секцію -->
-        <section>
-            <!-- створити тут div -->
-            <div>
-                <h2>About</h2>
-                <!-- 
-	            створити тут невпорядкований список з такмсм елементами 
-	  	        <a href="#">Services</a>
-                <a href="#">Portfolio</a>
-                <a href="#">Pricing</a>
-                <a href="#">Customers</a>
-                <a href="#">Careers</a>
-	            -->
-                <ul>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Customers</a></li>
-                    <!-- https://youtu.be/Jzg07ER4dDc 18:40 Careers перейменовано на Exercises
-                    <li><a href="#">Careers</a></li>
-                    -->
-                    <li><a href="./exercises/index.html">Exercises</a></li>
-                </ul>
-
-                <!-- створити тут div -->
-                <div>
-                    <h2>Resources</h2>
-                    <!-- 
-                    створити тут невпорядкований список з такмсм елементами 
-                    <a href="#">Docs</a>
-                    <a href="#">Blog</a>
-                    <a href="#">eBooks</a>
-                    <a href="#">Webinars</a>
-                    -->
-                    <ul>
-                        <li><a href="#">Docs</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">eBooks</a></li>
-                        <li><a href="#">Webinars</a></li>
-                    </ul>
+    <!-- hero -->
+    <section id="hero" class="hero mt-5 mb-3">
+        <div class="container py-5 px-4">
+            <p class="text-uppercase mb-3">Beautiful.</p>
+            <p class="text-uppercase mb-3">Glamorous.</p>
+            <p class="text-uppercase mb-3">Confident.</p>
+            <p class="mb-3"><br></p>
+            <a href="./catalog.html" class="btn">SHOP HAIR EXTENSIONS</a>
+        </div>
+    </section>
+    <section class="innline-content">
+        <div class="overlay"></div>
+        <div class="container">
+            <span class="text text-center">
+                <h2 class="text-uppercase text-shadow text-light">The wow effect. All day long.</h2>
+                <h3 class="py-5">I am a paragraph. Add your text hereand edit me. It's simple.<br>Add your own content.</h3>
+                <a href="./catalog.html" class="btn-gradient">Learn more</a>
+            </span>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container">            
+        <!-- <div class="container"> -->
+            <div class="carousel">
+                <div class="slider">
+                    <div class="slide-track">
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-1.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-2.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-3.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-4.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-5.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-6.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-7.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-1.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-2.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-3.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-4.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-5.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-6.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                        <div class="slide carousel-item">
+                            <a class="category-item" href="./catalog.html">
+                                <img src="./images/carousel-7.jpg" alt="text" width="250" height="100">
+                            </a>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- створити тут div -->
-                <div>
-                    <h2>Contact</h2>
-                    <!-- 
-	                створити тут невпорядкований список з такмсм елементами 
-	  	            <a href="#">Help</a>
-                    <a href="#">Sales</a>
-                    <a href="#">Advertise</a>
-	                -->
-                    <ul>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Sales</a></li>
-                        <li><a href="#">Advertise</a></li>
-                    </ul>
-                </div>
-
             </div>
-
-        </section>
-
-        <!-- Lesson 02 p.6 Кожна сторінка повинна мати такі розділи ... - footer ...
-            Розділ footer повинен містити абсолютні посилання на зовнішні сторінки та відкривати відповідний документ у новому вікні -->
-        <a href="https://google.com" target="_blank">Google</a>
-        <a href="https://www.google.com.ua" target="_blank">Google.com.ua</a>
-
-        <!-- Footer legal -->
-        <!-- створити тут section -->
-        <section>
-            <!-- 
-	        створити тут невпорядкований список з такмсм елементами 
-	  	    <a href="#">Terms &amp; Conditions</a>
-            <a href="#">Privacy Policy</a>
-            &copy; 2024 Copyright Shopaholic Inc.
-	        -->
-            <ul>
-                <a href="#">Terms &amp; Conditions</a>
-                <a href="#">Privacy Policy</a>
-                &copy; 2024 Copyright Shopaholic Inc
-            </ul>
-        </section>
-        <!--
-        Lesson 05 p.10.Відредагуйте файл index.html
-        В розділі footer створіть section з атрибутом class="footer-social.
-        В середині цієї секції розмістіть елемент ul з атрибутом class="list-unstyled".
-        В середині ul розмістіть елементи li, кожний з яких має містити посилання на одну з соціальних мереж - facebook, twitter, github, linkedin, youtube, instagram".
-        Перегляньте документацію для font-awesome, знайдіть іконки відповідних соц-мереж та вставте їх як текст посилань.
-        -->
-        <section class="footer-social">
-            <ul class="list-unstyled">
-                <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                <li><a href=""><i class="fab fa-github"></i></a></li>
-                <li><a href=""><i class="fab fa-linkedin"></i></a></li>
-                <li><a href=""><i class="fab fa-youtube"></i></a></li>
-                <li><a href=""><i class="fab fa-instagram"></i></a></li>
-            </ul>
-        </section>
-    </footer>
+        </div>
+    </section>
+    <!-- main content -->
+    <main id="main-header" class="mb-3">
+        <div class="container px-4 bm-3">
+            <header>
+                <h2 class="text-uppercase text-center text-light">Best <span>sellers</span></h2>
+            </header>
+            <a href="./catalog.html" class="product-container">
+            </a>
+        </div>
+    </main>
+    <!-- divider -->
+    <section id="divider" class="divider py-7 mb-3">
+        <div class="container text-right px-4">
+            <p class="text-white text-uppercase mb-2">Glamorous</p>
+            <p class="text-white text-uppercase mb-4">lashes</p>
+            <a href="./catalog.html" class="btn">SHOP LASHES</a>
+        </div>
+    </section>
+    <!-- services -->
+    <section id="services mb-3">
+        <div class="flex-container py-3 text-center">
+            <div class="svg-icon d-inline-block">
+                <svg class="svg-icon-item">
+                    <use xlink:href="#pay"></use>
+                </svg>
+                <div class="text-start">
+                    <h3>Оплата</h3>
+                    <p>готівкова та безготівкова</p>
+                </div>
+            </div>
+            <div class="svg-icon d-inline-block">
+                <svg class="svg-icon-item">
+                    <use xlink:href="#delivery"></use>
+                </svg>
+                <div class="text-start">
+                    <h3>Доставка</h3>
+                    <p>кур'єрська та поштова</p>
+                </div>
+            </div>
+            <div class="svg-icon d-inline-block">
+                <svg class="svg-icon-item">
+                    <use xlink:href="#return"></use>
+                </svg>
+                <div class="text-start">
+                    <h3>Повернення</h3>
+                    <p>на протязі 30 днів</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>    
+    <!-- page footer -->
+    <dialog id="details">
+        <a href="#!" title="Close" class="close fas fa-times"></a>
+        <span class="dialog-main"></span>
+    </dialog>
+    <script src="./js/db.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,81 @@
+/* footer.css */
+
+.page-footer {
+    --footer-background-color:rgb(55,60,71);
+    --footer-social-background-color: rgb(49,53,61);
+    --footer-ligal-background-color:rgb(43,46,51);    
+    --footer-a-color:#eee;
+    --footer-light-color:#fff;
+    --footer-a-font-size: .85rem;
+    
+    & .footer-main {
+        background-color: var(--footer-background-color);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 1.25rem 1.875rem;
+        & .footer-main-item {
+            > ul > li > a {
+                color: var(--footer-a-color);
+                font-size: var(--footer-a-font-size);
+            }
+            > ul > li > a:hover {
+                color: salmon;
+                /* color: var(--background-light-color); */
+            }
+            > ul > li > a:hover::before {
+                color: salmon;
+                font-weight: 900;
+                /* content: "\f00c"; */
+                font-family: 'Font Awesome 5 Free';
+                margin-right: 3px;
+            }
+            > .footer-title {
+                font-size: 1.1rem;
+                text-align: center;
+                color: var(--footer-light-color);
+            }
+        }
+    }
+    & .footer-social {
+        background-color: var(--footer-social-background-color);
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        padding: 0.75rem;
+        > .footer-social-list {
+            > li {
+                display: inline-block;
+                > a > i {
+                    font-size: 1.5rem;
+                    color: var(--footer-a-color);
+                    margin-right: .5rem;
+                }
+            }
+        }
+        > .footer-social-list > li > a:hover > i {
+            /* color: var(--background-light-color); */
+            color: salmon;
+        }
+    }
+    & .footer-ligal {
+        background-color: var(--footer-ligal-background-color);
+        > ul.footer-ligal-list {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0.5rem;
+            > li {
+                white-space: nowrap;
+            }
+            > li > a {
+                color: var(--footer-light-color);
+            }
+            > li > a:hover {
+                /* color: var(--footer-a-color); */
+                color: salmon;
+            }
+        }
+    }
+}
