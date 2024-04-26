@@ -2,28 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Блог</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-    <!-- header -->
-    <header>
-        <!-- Розділ header повинен містити тег заголовку 1-го ріаня -->
-        <h1>Каталог</h1>
+    <!-- page header -->
+    <header class="page-header mb-3">
+        <!-- brand -->
+        <a href="./index.html" class="brand">HAIR & LASHES</a>
         <!-- navigation -->
-        <!-- Розділ nav повинен містити відносні посилання на сторінки сайта -->
-        <nav>
-            <a href="index.html">Головна</a>
-            <a href="catalog.html">Каталог</a>
-            <a href="about.html">Про нас</a>
-            <a href="contact.html">Контакти</a>
+        <nav class="navbar">
+            <a href="./index.html">Головна</a>
+            <a href="./catalog.html">Каталог</a>
+            <a href="./blog.html">Блог</a>
+            <a href="./about.html">Про нас</a>
+            <a href="./contact.html">Контакти</a>
+        </nav>
+        <nav class="toolbar">
+            <a href="#" class="far fa-heart"></a>
+            <a href="./cart.html" class="fas fa-dolly-flatbed">(<span id="cart-amount">0</span>)</a>
+            <a href="#" class="far fa-user"></a>
         </nav>
     </header>
-    <!-- footer -->
-    <footer>
-        <!-- Розділ footer повинен містити абсолютні посилання на зовнішні сторінки та відкривати відповідний документ у новому вікні -->
-        <a href="https://google.com" target="_blank">Google</a>
-        <a href="https://www.google.com.ua" target="_blank">Google.com.ua</a>
-    </footer>
+    <!-- breadcrumb -->
+    <section class="breadcrumb-bg-light mt-5">
+        <div class="container py-3 px-5">
+            <div class="breadcrumb-container">
+                <div class="breadcrumb-title">
+                    Список звернень
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="./index.html">Головна</a></li>
+                    <li class="breadcrumb-item active">Блог</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <div class="blog-container py-5 px-4">
+        <p class="text-uppercase text-center mb-3 light-color">Як зробити замовлення на сайті</p>
+        <table class="table">
+			<thead>				
+                <tr>					
+                    <th>#</th>
+                    <th>Як зробити замовлення</th>		
+                </tr>					
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" class="py-4">1</th>
+                    <td>Виберіть товар на сторінці <a href="./catalog.html" class="bold underline text-light">каталогу</a> і додайте його у кошик.</td>
+                </tr>
+                <tr>        
+                    <th scope="row" class="py-4">2</th>
+                    <td>За необхідності можна збільшити або зменшити необхідну кількість додаючи товар повторно, або збільшуючи/зменшуючи кількість натискаючи на "+" або "-" при перегляді.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="py-4n">3</th>
+                    <td>У правому верхньому кутку у кошику кількість обраних товарів буде змінюватися. Щоб перейти до покупки натисніть на кошик і переконайтеся що в кошику все правильно - додані всі необхідні товари та кількість. </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="py-4">4</th>
+                    <td>Перед тим як перейти до оплати можна змінити назву та кількість товарів у кошику додавши необхідні та видаливши зайві.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="py-4">5</th>
+                    <td>Переконавшись, що в кошику все правильно, можна застосувати купон на знижку, який діє в період акцій та надсилається підписникам на пошту.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="py-4">6</th>
+                    <td>Переконавшись, що в кошику все правильно, можна застосувати купон на знижку, який надсилається в період акцій підписникам на пошту. Не забудьте вказати спосіб та адресу доставки, електронну адресу, номер телефону і прізвище, імя та по-батькові отримувача.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="py-4">7</th>
+                    <td>Після оформлення замовлення на вказану електронну пошту надійде автоматичне підтвердження, в якому зазначено інформацію про подальшу обробку замовлення. Підтвердженням створення замовлення є електронний лист.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="py-4">8</th>
+                    <td>Після оплати на Ваш номер телефону на протязі 24 годин надійде номер товаро-транспотрної накладної накладної. Отримайте товар не пізніше ніж через 5 днів після надходження товару.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="mb-3"><br></p>
+    </div>
+    <section id="blog" class="mb-3">
+        <div class="container py-3 px-4">
+            <div class="blog-main">Головна панель</div>
+            <div class="blog-sidebar">Бічна панель</div>
+        </div>
+    </section>
+    <script src="./js/db.js"></script>
+    <script src="./js/app.js"></script>
+    <!-- page footer -->
+    <dialog id="details">
+        <a href="#!" title="Close" class="close fas fa-times"></a>
+        <span class="dialog-main"></span>
+    </dialog>
 </body>
 </html>

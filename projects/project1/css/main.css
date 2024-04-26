@@ -1,84 +1,18 @@
 /* main.css */
-/* @charset "UTF-8"; */
-/* Підключити css/common.css за допомогою правила @import */
+@charset "UTF-8";
 
-@import url("common.css");
-
-/* Lecture 05 p.7. Відредагуйте файл css/main.css вашого персонального сайту */
-/* Виконайте імпорт шрифтів font-awesome за допомогою правила @import */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css');
-
-/* Виправити помилку у фрагменті */
-/* @import url("my-imported-styles.css"); */
-
-* {
-    margin: 0;
-    padding: 0;
-  }
-
-/* more styles */
-
-/* Встановити, за допомогою визначених у файлі css/common.css змінних, властивості елемента body:
-a.color;
-b.background; */
-body {
-    color: var(--primary-text-color);
-    background: var(--primary-bg-color);
-    /* Lecture 05 p.9 Встановити, за допомогою визначених у файлі css/common.css змінних, властивості елемента body
-    font-family
-    font-size */
-    font-family: var(--primary-font-family);
-    font-size: var(--primary-font-size);
-}
-
-/* Lecture 05 p.9 Встановити властивість font-weight: 700 для елементів h1, h2, h3 */
-h1, h2, h3 {
-    font-weight: 700;
-}
-
-/* Lecture 05 p.9 Встановити властивість font-size: 1.45rem для елемента h1 */
-h1 {
-    font-size: 1.45rem;
-}
-
-/* Lecture 05 p.9 Встановити властивість font-size: 1.3rem для елемента h2 */
-h2 {
-    font-size: 1.3rem;
-}
-
-/* Lecture 05 p.9 Визначити клас .list-unstyled з властивістю list-style: none */
-.list-unstyled {
-    list-style: none;
-}
-
-/* Lecture 05 p.9 Визначити клас .footer-social */
-.footer-social {
-    
-}
-
-/* Визначити клас text-uppercase з властивістю text-transform: uppercase; */
-.text-uppercase {
-    text-transform: uppercase;
-}
-
-/* Визначити клас bg-dark з властивістю background-color: black */
-.bg-dark {
-    background-color: black;
-}
-
-/* Визначити клас text-white з властивістю color: white */
-.text-white {
-  color: white;
-}
-
-/* Визначити селектор ul.categories li a з властивостями color: indigo, text-decoration: none, font-size: 1.2rem */
-ul.categories li:nth-child(even) {
-  color: indigo;
-  text-decoration: none;
-  font-size: 1.2rem;
-}
-
-/* Визначити селектор ul.categories li a з властивостями ul.categories li a:hover, background-color: lightgray */
-ul.categories li a:hover {
-  background-color: lightgray;
-}
+@import url(../css/common.css);
+@import url(../css/app.css);
+@import url(../css/nav.css);
+@import url(../css/hero.css);
+@import url(../css/breadcrumb.css);
+@import url(../css/catalog.css);
+@import url(../css/contact.css);
+@import url(../css/blog.css);
+@import url(../css/cart.css);
+@import url(../css/footer.css);
+@import url(../css/carousel.css);
+@import url(../css/dialog.css);
+@import url(../css/checkout.css);
+@import url(../css/about.css);
+/* @import url(../css/about.css); */

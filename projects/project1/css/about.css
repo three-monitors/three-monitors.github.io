@@ -1,0 +1,120 @@
+/* nav */
+.text-container {
+    top: 0px;
+    left: 10px;
+}
+
+.radio-container {
+    grid-row: 1;
+    grid-column: 2;
+    margin: 0;
+    padding: 0;
+    max-height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.radio-slider {
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.radio-slides {
+    width: 500%;
+    height: 500px;
+    display:flex;
+}
+
+.radio-slides input {
+    display:none;
+}
+
+.radio-slide {
+    /* height: auto; */
+    width: 20%;
+    transition: 2s;
+}
+
+.radio-slide img {
+    width: 800px;
+    height: 500px;
+}
+
+/* css for manual slide navigation */
+.navigation-manual {
+    position:absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid var(--background-light-color);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manual-btn:hover {
+    background: var(--background-light-color);
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+
+/* css for automatic navigation */
+.navigation-auto {
+    position:absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+}
+
+.navigation-auto div {
+border: 2px solid var(--backgroung-light-color);
+padding: 5px;
+border-radius: 10px;
+transition: 1s;
+}
+
+.navigation-auto div:not(:last:child){
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+    background: var(--backgroung-light-color);
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+    background: var(--backgroung-light-color);
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+    background: var(--backgroung-light-color);
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+    background: var(--backgroung-light-color);
+}
