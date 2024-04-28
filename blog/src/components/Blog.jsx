@@ -27,7 +27,6 @@
 // }
 // export default Blog;
 
-
 const Blog = ({ post }) => {
   return(
     <article className="post">
@@ -49,7 +48,7 @@ const Blog = ({ post }) => {
 
 // Lecture 35
 
-// import {userState} from 'react';
+// import { useState } from 'react';
 // const Blog = () => {
 //   const[isLoading, setIsLoading] = useState(true);
 
@@ -59,32 +58,33 @@ const Blog = ({ post }) => {
 //     const data = await (
 //       await fetch('https://jsonplaceholder.typicode.com/posts')
 //     ).json();
-//     setPosts([...posts, data])
+//     setPosts([...posts, data]);
 //     console.log(data)
+//     // (100) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
 //   }
 
 //   return (
 //     <>
-//     {
-//       isLoading? (
-//         <div>
-//           <p>Data is loading...</p>
-//           <button onClick={
-//             () => {
-//               dataFetch();
-//               setIsLoading(false)
-//             }
-//           }>Get Data</button>
-//         </div>
-//       )
-//       :
-//       (
-//         <div>
-//           <p>Loading complete</p>
-//           {JSON.stringyfy(posts)}
-//         </div>
-//       )
-//     }
+//       {
+//         isLoading? (
+//           <div>
+//             <p>Data is loading...</p>
+//             <button onClick={
+//               () => {
+//                 dataFetch();
+//                 setIsLoading(false)
+//               }
+//             }>Get Data</button>
+//           </div>
+//         )
+//         :
+//         (
+//           <div>
+//             <p>Loading complete</p>
+//             {JSON.stringify(posts)}
+//           </div>
+//         )
+//       }
 //     </>
 //   )
 // }
