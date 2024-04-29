@@ -1,4 +1,4 @@
-// Exersise 36
+// Exersise 37
 import { useState } from 'react'
 import './App.css'
 import Post from './components/Post';
@@ -16,7 +16,7 @@ function App() {
 
 export default App
 
-// Lecture 36
+// Lecture 37
 
 // import { useState } from 'react' // comment
 // import './App.css'
