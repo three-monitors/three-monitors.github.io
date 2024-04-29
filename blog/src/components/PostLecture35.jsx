@@ -14,17 +14,17 @@ class Post extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     console.log("Component Post updated", prevProps, prevState)
   }
-  // onclick Button =>
-  // Component Post updated {post: {…}} {counter: 7}
-  // Component Post updated {post: {…}} {counter: 8}
-  // ...
+  // onclick Button => // comment
+  // Component Post updated {post: {…}} {counter: 7} // comment
+  // Component Post updated {post: {…}} {counter: 8} // comment
+  // ... // comment
 
     shouldComponentUpdate(nextProps, nextState) {
     console.log("Component Post should update", nextProps, nextState)
   }
-  // onclick Button =>
-  // Component Post should update {post: {…}} {counter: 8}
-  // ...
+  // onclick Button => // comment
+  // Component Post should update {post: {…}} {counter: 8} // comment
+  // ... // comment
 
   render() {
     return (
