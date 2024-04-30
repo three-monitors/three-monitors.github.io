@@ -1,36 +1,43 @@
-// Exersise 37
-import { useState } from 'react'
-import './App.css'
-import Post from './components/Post';
-
-function App() {
-  return (
-    <>
-      <h1>Vite + React</h1>
-
-      <Post />
-
-    </>
-  )
-}
-
-export default App
-
-// Lecture 37
-
+// Exersise 39
 // import { useState } from 'react' // comment
 // import './App.css'
-// import PostList from './components/PostList';
+// import Posts from './components/Posts';
 
 // function App() {
 //   return (
 //     <>
-//       <h1>Vite + React</h1>
 
-//       <PostList />
+//       <Posts />
 
 //     </>
 //   )
 // }
 
 // export default App
+
+// Lecture 39
+
+import { useState } from 'react' // comment
+import './App.css'
+import PostList from './components/PostList';
+import Home from './pages/home';
+import ErrorPage from './pages/error';
+import About from './pages/about';
+
+function App() {
+  return (
+    <>
+
+      {/* <PostList /> */}
+
+      <Home />
+
+      {/* <ErrorPage /> */}
+
+      {/* <About /> */}
+
+    </>
+  )
+}
+
+export default App

@@ -1,10 +1,13 @@
-// Lecture 37
+// Lecture 38
 
 import { useState, useEffect, useContext, createContext, useCallback } from 'react';
 import PostListItem from './PostListItem';
 import {useData} from "../hooks/useData";
 
-const PostList = () => {
+// Стилізуйте сторінку, використовуючи Tailwind CSS
+import '../pages/home.css';
+
+const Posts = () => {
     // const [isLoading, setIsLoading] = useState(true);
 
     const [posts, setPosts] = useState([]);
@@ -49,38 +52,6 @@ const PostList = () => {
             </>
         )
     }
-
-    // useEffect(() => {
-    //     const dataFetch = async () => {
-    //         const data = await (
-    //         await fetch(`${baseUrl}/posts`)
-    //         ).json();
-    //         setPosts(data);
-    //         // setIsLoading(false)
-    //         // console.log(data)
-    //         // Array(4)
-    //     }
-    //     const fetchUser = async () => {
-    //         const data = await (
-    //         await fetch(`${baseUrl}/authors`)
-    //         ).json();
-    //         setAuthors(data);
-    //         setIsLoading(false)
-    //         // console.log(data)
-    //         // Array(4)
-    //     }
-    //     dataFetch();
-    //     fetchUser();
-    // }, []);
-
-    // const dataFetch = async () => {
-    //     const data = await (
-    //     await fetch('https://jsonplaceholder.typicode.com/posts')
-    //     ).json();
-    //     setPosts([...posts, data]);
-    //     console.log(data)
-    //     // (100) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-    // }
 
     const swap = useCallback( (items, i, j) => {
         let tmp = items[i]
@@ -151,7 +122,7 @@ const PostList = () => {
             <Layout>
                 <button onClick={handleClick}>Sort by {whichSort}</button>
                 <section className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
                         {posts.map((post) =>
                         <PostListItem item={post} key={post.id} user={findById(post.authorId)} />
                         )}
@@ -159,25 +130,7 @@ const PostList = () => {
                 </section>
             </Layout>
         </BlogContext.Provider>
-        // <>
-        // {
-
-        //     :
-        //     (
-        //     <section>
-        //         <h2>Our Blog</h2>
-        //         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi eos esse accusamus consequatur expedita ipsam pariatur quia numquam ut ullam, ea commodi magnam enim reprehenderit veritatis aut molestiae similique libero!</p>
-        //         {/* {JSON.stringify(posts)} */}
-        //         <div>
-        //             {posts.map((post) =>
-        //             <PostListItem item={post} key={post.id} user={findById(post.authorId)} />
-        //             )}
-        //         </div>
-        //     </section>
-        //     )
-        // }
-        // </>
     )
 }
 
-export default PostList;
+export default Posts;
