@@ -47,8 +47,9 @@ const Posts = () => {
         const blogHeader = useContext(BlogContext)
         return (
             <>
-                <h2>{blogHeader.blogName}</h2>
-                <p>{blogHeader.blogDescription}</p>
+                {/* Lecture 39. Стилізуйте сторінку, використовуючи Tailwind CSS */}
+                <h2 className="text-red-300 text-center pb-2 pr-2 text-3xl font-bold uppercase">{blogHeader.blogName}</h2>
+                <p className="pb-3 pr-3 text-center text-2xl font-bold">{blogHeader.blogDescription}</p>
             </>
         )
     }
