@@ -35,6 +35,9 @@ export default function Home() {
                   <li>
                   <Link to={`contact`}>Contact</Link>
                   </li>
+                  <li>
+                  <Link to={`chat`}>Chat</Link>
+                  </li>
                 </ul>
               </nav>
           </div>

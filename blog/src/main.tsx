@@ -9,6 +9,7 @@ import Contact from './pages/contact';
 import PostList from './components/PostList';
 import Blog  from './pages/blog';
 import ShowPost, {loader as postLoader} from "./pages/show";
+import Chat from "./pages/chat";
 import './index.css'
 import {
   createBrowserRouter, 
@@ -37,6 +38,9 @@ const router = createBrowserRouter([
     {
       path: "blog",
       element: <Blog />
+    },{
+      path: "chat",
+      element: <Chat />
     },
     {
       path: "post/:postId",
